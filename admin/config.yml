@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: your-github-username/my-new-website   # <-- REPLACE with your actual GitHub username and repo name
+  branch: main
+
+media_folder: "images" # Where uploaded images will be saved in your folder
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+  - label: "Pages"
+  - files:
+      - file: "index.html"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading (H1)", name: "heading", widget: "string"}
+          - {label: "Hero Subtext", name: "subtitle", widget: "string"}
+          - {label: "About Section Text", name: "about_text", widget: "text"}
