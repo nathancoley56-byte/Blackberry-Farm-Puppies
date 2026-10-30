@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-  <!-- Netlify Identity Widget for secure login -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackberry Farm Puppies</title>
+    <!-- Links your external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <!-- Include the script that builds the CMS page -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Header / Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Blackberry Farm Puppies</div>
+            <img src="Blackberry Farm Puppies.png" alt="Blackberry Farm Puppies" class="blackberry-farm-puppies-image">
+            <ul class="nav-links">
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="available-puppies.html">Available Puppies</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="ultimate-guide.html">Ultimate Guide</a></li>
+                <li><a href="former-puppies.html">Former Puppies</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Welcome to Blackberry Farm Puppies</h1>
+            <p>from our family to yours</p>
+            <a href="contact.html" class="btn">Get in Touch</a>
+        </section>
+        
+        
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Blackberry Farm Puppies. All rights reserved.</p>
+    </footer>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
