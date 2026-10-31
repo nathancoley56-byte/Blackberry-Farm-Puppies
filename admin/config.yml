@@ -9,11 +9,68 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "index.html"
+      - file: "_pages/home.md"
         label: "Home Page"
         name: "home"
         fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/"}
           - {label: "Page Title", name: "title", widget: "string"}
-          - {label: "Main Heading (H1)", name: "heading", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
           - {label: "Hero Subtext", name: "subtitle", widget: "string"}
-          - {label: "About Section Text", name: "about_text", widget: "text"}
+          - {label: "Button Text", name: "button_text", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown", required: false}
+      - file: "_pages/about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/about.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/available-puppies.md"
+        label: "Available Puppies"
+        name: "available-puppies"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/available-puppies.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/ultimate-guide.md"
+        label: "Ultimate Guide"
+        name: "ultimate-guide"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/ultimate-guide.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/former-puppies.md"
+        label: "Former Puppies"
+        name: "former-puppies"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/former-puppies.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/faq.md"
+        label: "FAQ"
+        name: "faq"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/faq.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/contact.md"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/contact.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown"}
