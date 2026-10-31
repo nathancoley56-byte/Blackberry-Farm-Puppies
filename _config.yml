@@ -1,0 +1,11 @@
+title: Blackberry Farm Puppies
+collections:
+  pages:
+    output: true
+    permalink: /:name.html
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page

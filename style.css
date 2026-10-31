@@ -103,6 +103,13 @@ main {
     margin-bottom: 1rem;
 }
 
+.content-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    margin-top: 1.5rem;
+}
+
 /* Hero Section */
 .hero {
     text-align: center;
