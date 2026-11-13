@@ -1,0 +1,12 @@
+primary_color: "#2563eb"
+primary_hover_color: "#1d4ed8"
+background_color: "#f8fafc"
+wallpaper: /images/screenshot-2026-11-10-193840.png
+surface_color: "#ffffff"
+text_color: "#0f172a"
+muted_text_color: "#64748b"
+brand_color: "#006400"
+font_family: playfair
+button_style: rounded
+content_width: standard
+spacing: comfortable

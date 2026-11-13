@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css?v=141">
+    {% include site-theme.html %}
+</head>
+<body class="{% if page.url contains '/recommended-products' %}recommended-products-page-body{% endif %}{% if site.data.site_design.wallpaper and site.data.site_design.wallpaper != '' %} has-wallpaper{% endif %}"{% if page.heading_alignment == "left" or page.heading_alignment == "center" or page.heading_alignment == "right" %} data-heading-alignment="{{ page.heading_alignment }}"{% endif %}>
+    {% include site-nav.html %}
+    <main>
+        {% assign nav_page_url = page.url %}
+        {% assign individual_bernedoodle = false %}
+        {% if page.layout == "litter" and page.breed == "bernedoodles" %}
+            {% assign individual_bernedoodle = true %}
+            {% assign pages_collection = site.collections | where: "label", "pages" | first %}
+
+                {% assign breed_page = pages_collection.docs | where: "url", "/bernedoodles.html" | first %}
+                {% if page.mother_name and page.mother_name != "" %}
+                    {% capture litter_banner_heading %}{{ page.mother_name }}'s Available Puppies{% endcapture %}
+                {% else %}
+                    {% assign litter_banner_heading = "Available Puppies" %}
+                {% endif %}
+
+        {% endif %}
+        <section class="content-section{% if page.banner_heading or individual_bernedoodle %} content-section--banner{% endif %}">
+            {% if individual_bernedoodle %}
+            {% include page-banner.html heading=litter_banner_heading caption=breed_page.banner_caption payment_plan_image=breed_page.payment_plan_image bernedoodle=true %}
+            {% elsif page.banner_heading %}
+            {% if nav_page_url == "/bernedoodles.html" %}
+            {% include page-banner.html heading=page.banner_heading caption=page.banner_caption payment_plan_image=page.payment_plan_image bernedoodle=true %}
+            {% else %}
+            {% include page-banner.html heading=page.banner_heading caption=page.banner_caption %}
+            {% endif %}
+            {% else %}
+            {% unless nav_page_url == "/about.html" or nav_page_url == "/contact.html" %}
+            <h1{% if nav_page_url == "/available-puppies.html" %} class="available-puppies-heading"{% elsif nav_page_url == "/preparing-our-puppies.html" %} class="preparing-puppies-heading"{% elsif nav_page_url == "/testimonials.html" %} class="testimonials-heading"{% endif %}>{{ page.heading | escape }}</h1>
+            {% endunless %}
+            {% endif %}
+            {{ content }}
+            {% if nav_page_url == "/testimonials.html" %}
+            {% include testimonials.html %}
+            {% endif %}
+            {% if nav_page_url == "/former-puppies.html" %}
+            {% include former-puppies-gallery.html %}
+            {% endif %}
+            {% if page.breed and page.layout != "litter" %}
+            {% assign breed_litters = site.litters | where: "breed", page.breed | sort_natural: "display_order" %}
+            {% include puppy-litters.html litters=breed_litters %}
+            {% endif %}
+            {% if nav_page_url == "/bernedoodles.html" or page.breed == "bernedoodles" %}
+            {% include bernedoodle-callout.html %}
+            {% endif %}
+        </section>
+    </main>
+    {% include google-reviews-widget.html %}
+    <footer>
+        <p class="footer-phone"><a href="tel:8017359284">Call or Text us at 801-735-9284</a></p>
+        <p>© 2024 Blackberry Farm Puppies. All rights reserved.</p>
+    </footer>
+    <script src="/assets/js/image-viewer.js?v=7" defer></script>
+
+</body>
+</html>

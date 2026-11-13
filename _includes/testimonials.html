@@ -1,0 +1,24 @@
+{% assign testimonial_entries = page.testimonials %}
+
+{% if testimonial_entries and testimonial_entries.size > 0 %}
+<div class="testimonials-grid">
+    {% for testimonial in testimonial_entries %}
+    {% assign description = testimonial.description %}
+    {% assign image_alt = testimonial.image_alt %}
+
+    {% if testimonial.image != blank or description != blank or testimonial.name != blank %}
+    <article class="testimonial-card">
+        {% if testimonial.image != blank %}
+        <img src="{{ testimonial.image | relative_url | escape }}" alt="{{ image_alt | default: testimonial.name | default: 'Puppy photo' | escape }}" loading="lazy">
+        {% endif %}
+        {% if description != blank or testimonial.name != blank %}
+        <blockquote>
+            {% if description != blank %}<p class="testimonial-card__description">{{ description | escape }}</p>{% endif %}
+            {% if testimonial.name != blank %}<footer>{{ testimonial.name | escape }}</footer>{% endif %}
+        </blockquote>
+        {% endif %}
+    </article>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}

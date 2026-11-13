@@ -1,0 +1,10 @@
+{% if page.why_were_awesome and page.why_were_awesome.size > 0 %}
+<section class="home-highlights" aria-labelledby="home-highlights-heading">
+    <h2 id="home-highlights-heading">Why We're Awesome</h2>
+    <ul class="home-highlights__list">
+        {% for highlight in page.why_were_awesome %}
+        <li class="home-highlights__item">{{ highlight | escape }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}

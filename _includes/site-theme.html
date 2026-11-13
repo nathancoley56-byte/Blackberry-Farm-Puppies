@@ -1,0 +1,21 @@
+{% assign theme = site.data.site_design %}
+<style>
+    :root {
+        --primary-color: {{ theme.primary_color | default: '#2563eb' }};
+        --primary-hover: {{ theme.primary_hover_color | default: '#1d4ed8' }};
+        --bg-color: {{ theme.background_color | default: '#f8fafc' }};
+        --card-bg: {{ theme.surface_color | default: '#ffffff' }};
+        --text-color: {{ theme.text_color | default: '#0f172a' }};
+        --text-muted: {{ theme.muted_text_color | default: '#64748b' }};
+        --brand-color: {{ theme.brand_color | default: '#006400' }};
+        --button-radius: {% case theme.button_style %}{% when "square" %}0{% when "pill" %}9999px{% else %}var(--radius){% endcase %};
+        --max-width: {% case theme.content_width %}{% when "narrow" %}900px{% when "wide" %}1300px{% else %}1100px{% endcase %};
+        --spacing-scale: {% case theme.spacing %}{% when "compact" %}0.85{% when "spacious" %}1.15{% else %}1{% endcase %};
+        --font-main: {% case theme.font_family %}{% when "lora" %}'Lora', Georgia, serif{% when "open-sans" %}'Open Sans', Arial, sans-serif{% when "georgia" %}Georgia, 'Times New Roman', serif{% else %}'Playfair Display', Georgia, 'Times New Roman', serif{% endcase %};
+    }
+    {% if theme.wallpaper and theme.wallpaper != "" %}
+    body.has-wallpaper {
+        background-image: url("{{ theme.wallpaper | relative_url | uri_escape | replace: '"', '%22' | replace: ')', '%29' }}");
+    }
+    {% endif %}
+</style>

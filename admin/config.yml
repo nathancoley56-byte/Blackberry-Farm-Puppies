@@ -9,11 +9,316 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "index.html"
+      - file: "_pages/home.md"
         label: "Home Page"
         name: "home"
         fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/"}
           - {label: "Page Title", name: "title", widget: "string"}
-          - {label: "Main Heading (H1)", name: "heading", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
           - {label: "Hero Subtext", name: "subtitle", widget: "string"}
-          - {label: "About Section Text", name: "about_text", widget: "text"}
+          - {label: "Button Text", name: "button_text", widget: "string"}
+          - {label: "Full-width Home Photo", name: "home_photo", widget: "image", required: false}
+          - {label: "Bernedoodles Category Image", name: "bernedoodles_image", widget: "image", required: false}
+          - {label: "Preparing Our Puppies Category Image", name: "preparing_image", widget: "image", required: false}
+          - {label: "Testimonials Category Image", name: "testimonials_image", widget: "image", required: false}
+          - {label: "Who We Are", name: "who_we_are", widget: "text", required: false}
+          - {label: "Who We Are Photo", name: "who_we_are_image", widget: "image", required: false}
+          - label: "Why We're Awesome"
+            name: "why_were_awesome"
+            widget: "list"
+            required: false
+            field: {label: "Highlight", name: "highlight", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown", required: false}
+      - file: "_pages/about.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/about.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/available-puppies.md"
+        label: "Available Puppies"
+        name: "available-puppies"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/available-puppies.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Bernedoodles Image", name: "bernedoodles_image", widget: "image", required: false}
+          - {label: "Cavapoos Image", name: "cavapoos_image", widget: "image", required: false}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/preparing-our-puppies.md"
+        label: "Preparing Our Puppies"
+        name: "preparing-our-puppies"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/preparing-our-puppies.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/testimonials.md"
+        label: "Testimonials"
+        name: "testimonials"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/testimonials.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Photo", name: "image", widget: "image", required: false}
+              - {label: "Description", name: "description", widget: "text", required: false}
+              - {label: "Name", name: "name", widget: "string", required: false}
+              - {label: "Image Description", name: "image_alt", widget: "string", required: false}
+      - file: "_pages/former-puppies.md"
+        label: "Former Puppies"
+        name: "former-puppies"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/former-puppies.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+          - label: "Former Puppy Photos"
+            name: "former_puppy_photos"
+            widget: "list"
+            required: false
+            summary: "{{fields.image}}"
+            field: {label: "Photo", name: "image", widget: "image", required: false}
+      - file: "_pages/faq.md"
+        label: "FAQ"
+        name: "faq"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/faq.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - label: "Questions and Answers"
+            name: "faqs"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Answer", name: "answer", widget: "markdown"}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/payment-options.md"
+        label: "Payment Options"
+        name: "payment-options"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/payment-options.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/shipping-options.md"
+        label: "Shipping Options"
+        name: "shipping-options"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/shipping-options.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/recommended-products.md"
+        label: "SHOP OUR FAVORITE THINGS"
+        name: "recommended-products"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/recommended-products.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - label: "Recommended Products"
+            name: "recommended_products"
+            widget: "list"
+            required: false
+            fields:
+              - {label: "Product Photo", name: "photo", widget: "image", required: false}
+              - {label: "Product Name", name: "name", widget: "string", required: false}
+              - {label: "Product Link", name: "link", widget: "string", required: false}
+              - {label: "Description", name: "description", widget: "text", required: false}
+      - file: "_pages/contact.md"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/contact.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/cavapoos.md"
+        label: "Cavapoos"
+        name: "cavapoos"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/cavapoos.html"}
+          - {label: "Breed Key", name: "breed", widget: "hidden", default: "cavapoos"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/retired-dogs.md"
+        label: "Retired Dogs"
+        name: "retired-dogs"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/retired-dogs.html"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+
+          - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
+          - {label: "Page Content", name: "body", widget: "markdown"}
+      - file: "_pages/bernedoodles.md"
+        label: "Bernedoodle Puppies"
+        name: "bernedoodles"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/bernedoodles.html"}
+          - {label: "Breed Key", name: "breed", widget: "hidden", default: "bernedoodles"}
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Banner Heading", name: "banner_heading", widget: "string"}
+          - {label: "Banner Caption", name: "banner_caption", widget: "string"}
+          - {label: "Payment Plan Image", name: "payment_plan_image", widget: "image", required: false}
+          - {label: "Page Content", name: "body", widget: "markdown", required: false}
+  - name: "litters"
+    label: "Litters (All and Individual Pages)"
+    label_singular: "Litter"
+    folder: "_litters"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    summary: "{{mother_name}}'s litter ({{breed}}) - Added: {{date_added | default('Unknown')}}"
+    sortable_fields:
+      - {field: "date_added", label: "Date Added", default_sort: "asc"}
+      - {field: "mother_name", label: "Mother's Name"}
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "litter", required: false}
+      - {label: "Show Litter Details", name: "show_puppy_details", widget: "hidden", default: true, required: false}
+      - {label: "Page Title", name: "title", widget: "string", required: false}
+      - {label: "Page Heading", name: "heading", widget: "string", required: false}
+      - {label: "Date Added", name: "date_added", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, default: "{{now}}", required: false, hint: "Automatically set for new litters. Leave blank if the original date is unknown."}
+      - label: "Breed"
+        name: "breed"
+        widget: "select"
+        required: false
+        options:
+          - {label: "Bernedoodles", value: "bernedoodles"}
+          - {label: "Cavapoos", value: "cavapoos"}
+      - {label: "Display Order", name: "display_order", widget: "number", default: 99, required: false}
+      - {label: "Litter Type", name: "name", widget: "string", required: false}
+      - {label: "Mother's Name", name: "mother_name", widget: "string", required: false}
+      - {label: "Mother's Description", name: "mother_description", widget: "text", required: false}
+      - {label: "Mother's Photo", name: "mother_photo", widget: "image", required: false}
+      - {label: "Father's Name", name: "father_name", widget: "string", required: false}
+      - {label: "Father's Description", name: "father_description", widget: "text", required: false}
+      - {label: "Father's Photo", name: "father_photo", widget: "image", required: false}
+      - {label: "Ready to Go Home", name: "ready_to_go_home", widget: "string", required: false}
+      - {label: "Estimated Weight", name: "estimated_weight", widget: "string", required: false}
+      - {label: "Birthday", name: "birthday", widget: "string", required: false}
+      - label: "Puppies"
+        name: "puppies"
+        widget: "list"
+        required: false
+        summary: "{{fields.name}}"
+        fields:
+          - {label: "Name", name: "name", widget: "string", required: false}
+          - {label: "Color/Description", name: "color", widget: "string", required: false}
+          - {label: "Price", name: "price", widget: "string", required: false}
+          - {label: "Additional details shown only on this litter page", name: "individual_details", widget: "markdown", required: false}
+          - label: "Photo Wheel Images"
+            name: "photos"
+            widget: "list"
+            required: false
+            summary: "{{fields.image}}"
+            field: {label: "Photo", name: "image", widget: "image", required: false}
+  - name: "site-design"
+    label: "Site Design"
+    files:
+      - file: "_data/site_design.yml"
+        label: "Global Theme"
+        name: "global-theme"
+        fields:
+          - {label: "Primary Accent Color", name: "primary_color", widget: "color", enableAlpha: false}
+          - {label: "Accent Hover Color", name: "primary_hover_color", widget: "color", enableAlpha: false}
+          - {label: "Page Background", name: "background_color", widget: "color", enableAlpha: false}
+          - {label: "Site Wallpaper", name: "wallpaper", widget: "image", required: false, hint: "Optional background image shown behind the site content. Remove it to use the page background color."}
+          - {label: "Card and Surface Color", name: "surface_color", widget: "color", enableAlpha: false}
+          - {label: "Main Text Color", name: "text_color", widget: "color", enableAlpha: false}
+          - {label: "Secondary Text Color", name: "muted_text_color", widget: "color", enableAlpha: false}
+          - {label: "Brand Green", name: "brand_color", widget: "color", enableAlpha: false}
+          - label: "Site Font"
+            name: "font_family"
+            widget: "select"
+            options:
+              - {label: "Playfair Display", value: "playfair"}
+              - {label: "Lora", value: "lora"}
+              - {label: "Open Sans", value: "open-sans"}
+              - {label: "Georgia", value: "georgia"}
+          - label: "Button Shape"
+            name: "button_style"
+            widget: "select"
+            options:
+              - {label: "Rounded", value: "rounded"}
+              - {label: "Square", value: "square"}
+              - {label: "Pill", value: "pill"}
+          - label: "Content Width"
+            name: "content_width"
+            widget: "select"
+            options:
+              - {label: "Narrow", value: "narrow"}
+              - {label: "Standard", value: "standard"}
+              - {label: "Wide", value: "wide"}
+          - label: "Section Spacing"
+            name: "spacing"
+            widget: "select"
+            options:
+              - {label: "Compact", value: "compact"}
+              - {label: "Comfortable", value: "comfortable"}
+              - {label: "Spacious", value: "spacious"}
+  - name: "photo-library"
+    label: "Photo Library"
+    files:
+      - file: "_data/puppy_photo_library.yml"
+        label: "Saved Puppy Photos"
+        name: "saved-puppy-photos"
+        fields:
+          - label: "Photo Collection"
+            name: "photos"
+            widget: "list"
+            required: false
+            summary: "{{fields.image}}"
+            field: {label: "Photo", name: "image", widget: "image"}
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: fxnjvcgg
+    api_key: 297567459646882

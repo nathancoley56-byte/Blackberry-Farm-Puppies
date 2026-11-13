@@ -3,6 +3,9 @@ collections:
   pages:
     output: true
     permalink: /:name.html
+  litters:
+    output: true
+    permalink: /litters/:name.html
 defaults:
   - scope:
       path: ""

@@ -1,0 +1,41 @@
+<section class="contact-form-section" aria-labelledby="contact-form-heading">
+    {% if include.is_page %}
+    <h1 id="contact-form-heading">{{ include.heading | default: "Contact Us" | escape }}</h1>
+    {% else %}
+    <h2 id="contact-form-heading">{{ include.heading | default: "Contact Us" | escape }}</h2>
+    {% endif %}
+    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="contact-form__fields">
+            <label class="visually-hidden" for="contact-first-name">First Name</label>
+            <input id="contact-first-name" type="text" name="first_name" placeholder="First Name" autocomplete="given-name" required>
+
+            <label class="visually-hidden" for="contact-last-name">Last Name</label>
+            <input id="contact-last-name" type="text" name="last_name" placeholder="Last Name" autocomplete="family-name">
+
+            <label class="visually-hidden" for="contact-email">Email</label>
+            <input id="contact-email" type="email" name="email" placeholder="Email" autocomplete="email" required>
+
+            <label class="visually-hidden" for="contact-phone">Phone</label>
+            <input id="contact-phone" type="tel" name="phone" placeholder="Phone" autocomplete="tel">
+
+            <label class="visually-hidden" for="contact-puppy">Which puppy are you interested in?</label>
+            <input class="contact-form__wide" id="contact-puppy" type="text" name="puppy" placeholder="Which puppy are you interested in?">
+
+            <label class="visually-hidden" for="contact-state">What state are you located in?</label>
+            <input class="contact-form__wide" id="contact-state" type="text" name="state" placeholder="What state are you located in?">
+
+            <label class="visually-hidden" for="contact-message">Please share additional details here...</label>
+            <textarea class="contact-form__wide" id="contact-message" name="message" rows="5" placeholder="Please share additional details here..." required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div class="contact-form-copy">
+
+        <p>For the protection of our litters, we are very selective when finding homes for each puppy. We want to make sure every puppy is going to a loving home. If you’d like to meet a puppy from one of our current litters, please contact me today to set up an appointment! We are happy to FaceTime you as well, so you can see the puppies in action instead of just in pictures. Feel free to reach out to me with any other related questions, to get on a waiting list, or to tell me about the family pet you are hoping for. I can't wait to help you find your perfect fur baby!</p>
+
+
+        <p>Reach out directly at <a href="mailto:blackberryfarmpuppies@gmail.com">BlackberryFarmPuppies@gmail.com</a> or call/text <a href="tel:8017359284">(801) 735-9284</a>.</p>
+
+    </div>
+</section>

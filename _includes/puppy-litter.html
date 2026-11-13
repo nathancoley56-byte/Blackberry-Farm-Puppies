@@ -1,0 +1,107 @@
+{% assign litter = include.litter %}
+{% assign litter_name = litter.name %}
+{% assign mother_description = litter.mother_description %}
+{% assign father_description = litter.father_description %}
+{% assign ready_to_go_home = litter.ready_to_go_home %}
+{% assign estimated_weight = litter.estimated_weight %}
+{% assign birthday = litter.birthday %}
+
+<section class="puppy-litter">
+    <div class="puppy-litter__parents" aria-label="Litter parents">
+        <article class="puppy-parent">
+            <div class="puppy-parent__image">
+                {% if litter.mother_photo and litter.mother_photo != "" %}
+                <img src="{{ litter.mother_photo | relative_url }}" alt="{% if litter.mother_name %}{{ litter.mother_name | escape }}{% else %}Mother{% endif %}" loading="lazy">
+                {% else %}
+                <span>Mother photo coming soon</span>
+                {% endif %}
+            </div>
+            <div class="puppy-parent__details">
+                <h3>{% if litter.mother_name %}{{ litter.mother_name | escape }}{% else %}Name coming soon{% endif %}</h3>
+                <details class="puppy-parent__bio">
+                <summary class="puppy-parent__role"><span>Mom</span><span class="puppy-parent__chevron" aria-hidden="true"></span></summary>
+                {% if mother_description and mother_description != "" %}
+                <div class="puppy-parent__description">{{ mother_description | escape | newline_to_br }}</div>
+                {% else %}
+                <p>Parent details coming soon.</p>
+                {% endif %}
+                </details>
+            </div>
+        </article>
+        <article class="puppy-parent">
+            <div class="puppy-parent__image">
+                {% if litter.father_photo and litter.father_photo != "" %}
+                <img src="{{ litter.father_photo | relative_url }}" alt="{% if litter.father_name %}{{ litter.father_name | escape }}{% else %}Father{% endif %}" loading="lazy">
+                {% else %}
+                <span>Father photo coming soon</span>
+                {% endif %}
+            </div>
+            <div class="puppy-parent__details">
+                <h3>{% if litter.father_name %}{{ litter.father_name | escape }}{% else %}Name coming soon{% endif %}</h3>
+                <details class="puppy-parent__bio">
+                <summary class="puppy-parent__role"><span>Dad</span><span class="puppy-parent__chevron" aria-hidden="true"></span></summary>
+                {% if father_description and father_description != "" %}
+                <div class="puppy-parent__description">{{ father_description | escape | newline_to_br }}</div>
+                {% else %}
+                <p>Parent details coming soon.</p>
+                {% endif %}
+                </details>
+            </div>
+        </article>
+    </div>
+
+    <div class="puppy-details">
+        <h2>{% if litter_name %}{{ litter_name | escape }}{% else %}Upcoming Litter{% endif %}</h2>
+        {% if ready_to_go_home %}
+        <p class="puppy-details__availability">{% if ready_to_go_home contains "Ready to go home" %}{{ ready_to_go_home | escape }}{% else %}Ready to go home {{ ready_to_go_home | escape }}{% endif %}</p>
+        {% else %}
+        <p class="puppy-details__availability">Ready-to-go-home date coming soon</p>
+        {% endif %}
+        <p class="puppy-details__secondary">{% if estimated_weight contains "Estimated weight:" %}{{ estimated_weight | escape }}{% else %}Estimated weight: {{ estimated_weight | default: "Coming soon" | escape }}{% endif %}</p>
+        <p class="puppy-details__secondary">{% if birthday %}{% if birthday contains "B-day" %}{{ birthday | escape }}{% else %}B-day {{ birthday | escape }}{% endif %}{% else %}B-day coming soon{% endif %}</p>
+    </div>
+
+    {% if litter.puppies and litter.puppies.size > 0 %}
+    <div class="puppy-litter__puppies">
+        {% for puppy in litter.puppies %}
+        {% assign puppy_color = puppy.color %}
+        {% assign puppy_details = puppy.individual_details %}
+
+        {% assign puppy_name = puppy.name | default: "Puppy details coming soon" %}
+
+        <article class="puppy-litter__puppy-card">
+            <div class="puppy-litter__puppy-details">
+                <h3>{{ puppy_name | escape }}</h3>
+                <p class="puppy-litter__puppy-facts">
+                    <span>{% if puppy_color %}{{ puppy_color | escape }}{% else %}Color coming soon{% endif %}</span>
+                    <span>{% if puppy.price %}{{ puppy.price | escape }}{% else %}Price coming soon{% endif %}</span>
+                </p>
+                {% if page.show_puppy_details and puppy_details and puppy_details != "" %}
+                <div class="puppy-litter__individual-details">
+                    <h4>Details</h4>
+                    {{ puppy_details | markdownify }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="puppy-gallery" aria-label="Photo gallery for {{ puppy_name | escape }}">
+                {% if puppy.photos and puppy.photos.size > 0 %}
+                {% for image in puppy.photos %}
+                {% if image and image != "" %}
+                <div class="puppy-gallery__item">
+                    <img src="{{ image | relative_url }}" alt="{{ puppy_name | escape }}" loading="lazy">
+                </div>
+                {% else %}
+                <div class="puppy-gallery__item puppy-gallery__item--placeholder">Puppy photo coming soon</div>
+                {% endif %}
+                {% endfor %}
+                {% else %}
+                {% for photo_slot in (1..3) %}
+                <div class="puppy-gallery__item puppy-gallery__item--placeholder">Puppy photo coming soon</div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>

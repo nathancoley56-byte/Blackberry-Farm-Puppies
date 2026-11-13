@@ -1,0 +1,13 @@
+{% assign gallery_photos = page.former_puppy_photos %}
+
+{% if gallery_photos and gallery_photos.size > 0 %}
+<div class="former-puppies-gallery" aria-label="Former puppy photo gallery">
+    {% for photo in gallery_photos %}
+    {% if photo and photo != "" %}
+    <img class="former-puppies-gallery__image" src="{{ photo | relative_url }}" alt="Former Blackberry Farm puppy" loading="lazy">
+    {% else %}
+    <div class="former-puppies-gallery__placeholder" role="img" aria-label="Photo placeholder">Photo placeholder</div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}

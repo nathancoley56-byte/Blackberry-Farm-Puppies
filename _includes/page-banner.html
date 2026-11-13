@@ -1,0 +1,19 @@
+<div class="page-banner" id="top">
+    <h1>{{ include.heading | escape }}</h1>
+    <p class="page-banner__caption">{{ include.caption | escape }}</p>
+    {% if include.bernedoodle %}
+    <p class="page-banner__note">(Breeding Rights Extra)</p>
+    <a class="bernedoodle-callout__button page-banner__button" href="tel:8017359284">Call or Text 801-735-9284</a>
+    <div class="page-banner__payment">
+        <div class="page-banner__payment-text">
+            <p>Ask about our Payment Plans.</p>
+            <p>Choose options up to 36 months.</p>
+        </div>
+        {% if include.payment_plan_image and include.payment_plan_image != "" %}
+        <img class="page-banner__payment-image" src="{{ include.payment_plan_image | relative_url }}" alt="Payment plan information">
+        {% else %}
+        <img class="page-banner__klarna" src="{{ '/images/klarna-payment-badge.png' | relative_url }}" alt="Klarna" width="60" height="24">
+        {% endif %}
+    </div>
+    {% endif %}
+</div>

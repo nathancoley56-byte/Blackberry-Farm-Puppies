@@ -1,0 +1,76 @@
+<section class="puppy-litter puppy-litter--additional" aria-label="{{ include.label }}">
+    <div class="puppy-litter__banner" aria-hidden="true"></div>
+    <div class="puppy-profiles">
+        <article class="puppy-profile">
+            <div class="puppy-profile__image">
+                {% assign first_image = page[include.first_image_field] %}
+                {% if first_image and first_image != "" %}
+                <img src="{{ first_image | relative_url }}" alt="Bernedoodle puppy">
+                {% else %}
+                <span>Upload an image in Content Manager</span>
+                {% endif %}
+            </div>
+            <div class="puppy-profile__text">
+                {% assign first_text = page[include.first_text_field] %}
+                {% if first_text and first_text != "" %}
+                {{ first_text | markdownify }}
+                {% else %}
+                <span>Add text in Content Manager</span>
+                {% endif %}
+            </div>
+        </article>
+        <article class="puppy-profile">
+            <div class="puppy-profile__image">
+                {% assign second_image = page[include.second_image_field] %}
+                {% if second_image and second_image != "" %}
+                <img src="{{ second_image | relative_url }}" alt="Bernedoodle puppy">
+                {% else %}
+                <span>Upload an image in Content Manager</span>
+                {% endif %}
+            </div>
+            <div class="puppy-profile__text">
+                {% assign second_text = page[include.second_text_field] %}
+                {% if second_text and second_text != "" %}
+                {{ second_text | markdownify }}
+                {% else %}
+                <span>Add text in Content Manager</span>
+                {% endif %}
+            </div>
+        </article>
+    </div>
+    <div class="puppy-details">
+        <p class="puppy-details__headline">Multigenerational Bernedoodles</p>
+        <p class="puppy-details__availability">Ready to go home</p>
+        <p>Estimated weight: Around ... pounds</p>
+        <p>B-day</p>
+    </div>
+    <div class="puppy-litter__puppies">
+        {% assign puppies = page[include.puppies_field] %}
+        {% for puppy in puppies %}
+        <article class="puppy-litter__puppy-card">
+            <p class="puppy-litter__puppy">
+                <span>{{ puppy.name | default: "Name" | escape }}</span>
+                <span>{{ puppy.color | default: "Color" | escape }}</span>
+                <span>{{ puppy.price | default: "$Price" | escape }}</span>
+            </p>
+            <div class="puppy-gallery" aria-label="Photos for {{ puppy.name | default: 'puppy' | escape }}">
+                {% if puppy.gallery and puppy.gallery.size > 0 %}
+                {% for image in puppy.gallery %}
+                <div class="puppy-gallery__item">
+                    {% if image and image != "" %}
+                    <img src="{{ image | relative_url }}" alt="{{ puppy.name | default: 'Bernedoodle puppy' | escape }}" loading="lazy">
+                    {% else %}
+                    <span>Add a photo in Content Manager</span>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="puppy-gallery__item puppy-gallery__item--placeholder">
+                    <span>Add photos in Content Manager</span>
+                </div>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>

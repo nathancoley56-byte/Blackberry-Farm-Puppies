@@ -1,0 +1,7 @@
+{% assign litter_list = include.litters | default: page.litters %}
+{% for litter in litter_list %}
+{% include puppy-litter.html litter=litter %}
+{% unless forloop.last %}
+<div class="puppy-litter__separator" aria-hidden="true"></div>
+{% endunless %}
+{% endfor %}

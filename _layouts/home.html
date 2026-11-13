@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css?v=141">
+    {% include site-theme.html %}
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body{% if site.data.site_design.wallpaper and site.data.site_design.wallpaper != '' %} class="has-wallpaper"{% endif %}{% if page.heading_alignment == "left" or page.heading_alignment == "center" or page.heading_alignment == "right" %} data-heading-alignment="{{ page.heading_alignment }}"{% endif %}>
+    {% include site-nav.html %}
+    <section class="home-photo" aria-label="Featured farm photo">
+        {% if page.home_photo and page.home_photo != "" %}
+        <img src="{{ page.home_photo | relative_url }}" alt="Blackberry Farm Puppies" loading="lazy">
+        {% else %}
+        <div class="home-photo__placeholder">Home page photo coming soon</div>
+        {% endif %}
+        <h1 class="home-photo__heading">{{ page.heading | escape }}</h1>
+    </section>
+    <section class="hero">
+        <p>{{ page.subtitle | escape }}</p>
+        <a href="/contact.html" class="btn">{{ page.button_text | escape }}</a>
+    </section>
+    <section class="home-intro">
+        <h2><span>Premium Breeder of Bernedoodle and Cavapoo Puppies in Utah</span></h2>
+    </section>
+    <main>
+        {{ content }}
+        {% include home-puppy-links.html %}
+        {% include home-highlights.html %}
+        {% include home-about.html %}
+
+        {% include contact-form.html heading="Contact Us" %}
+
+    </main>
+    {% include google-reviews-widget.html %}
+    <footer>
+        <p class="footer-phone"><a href="tel:8017359284">Call or Text us at 801-735-9284</a></p>
+        <p>© 2024 Blackberry Farm Puppies. All rights reserved.</p>
+    </footer>
+    <script src="/assets/js/image-viewer.js?v=7" defer></script>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

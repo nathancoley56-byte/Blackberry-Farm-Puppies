@@ -1,0 +1,13 @@
+<section class="home-about" aria-labelledby="home-about-heading">
+    <div class="home-about__content">
+        <h2 id="home-about-heading">Who We Are</h2>
+        <p>{{ page.who_we_are | escape }}</p>
+    </div>
+    <div class="home-about__image">
+        {% if page.who_we_are_image and page.who_we_are_image != "" %}
+        <img src="{{ page.who_we_are_image | relative_url }}" alt="Blackberry Farm Puppies family" loading="lazy">
+        {% else %}
+        <div class="home-about__placeholder" role="img" aria-label="Who we are photo coming soon">Photo coming soon</div>
+        {% endif %}
+    </div>
+</section>

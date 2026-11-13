@@ -1,0 +1,26 @@
+<nav class="puppy-category-links home-puppy-links" aria-label="Explore our puppies">
+    <div class="puppy-category">
+        {% if page.bernedoodles_image and page.bernedoodles_image != "" %}
+        <img class="puppy-category__image" src="{{ page.bernedoodles_image | relative_url }}" alt="Bernedoodles">
+        {% else %}
+        <div class="puppy-category__image puppy-category__image--placeholder" role="img" aria-label="Bernedoodles image placeholder"></div>
+        {% endif %}
+        <a class="btn" href="/bernedoodles.html">Bernedoodles</a>
+    </div>
+    <div class="puppy-category">
+        {% if page.preparing_image and page.preparing_image != "" %}
+        <img class="puppy-category__image" src="{{ page.preparing_image | relative_url }}" alt="Preparing our puppies">
+        {% else %}
+        <div class="puppy-category__image puppy-category__image--placeholder" role="img" aria-label="Preparing our puppies image placeholder"></div>
+        {% endif %}
+        <a class="btn" href="/preparing-our-puppies.html">Preparing Our Puppies</a>
+    </div>
+    <div class="puppy-category">
+        {% if page.testimonials_image and page.testimonials_image != "" %}
+        <img class="puppy-category__image" src="{{ page.testimonials_image | relative_url }}" alt="Testimonials">
+        {% else %}
+        <div class="puppy-category__image puppy-category__image--placeholder" role="img" aria-label="Testimonials image placeholder"></div>
+        {% endif %}
+        <a class="btn" href="/testimonials.html">Testimonials</a>
+    </div>
+</nav>
