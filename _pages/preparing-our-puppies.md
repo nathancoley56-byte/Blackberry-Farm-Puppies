@@ -24,7 +24,7 @@ heading: Preparing Our Puppies
       <li>Vet vaccination and deworming records.</li>
       <li>Nail clippers. Small ones for now, larger ones for later. We suggest pretending to cut their nails often as this will make cutting their nails a breeze in the future.</li>
       <li>A couple toys.</li>
-      <li>Blanket that smells like momma and litter mates.</li>
+      <li>Blanket that smells like momma and the puppy's siblings.</li>
       <li>Leash and collar. No need to buy an expensive collar right now as your puppy grows so quickly.</li>
       <li>Sales contract/Health guarantee.</li>
       <li class="puppy-take-home__food">A small baggy of the puppy food that your little one has been eating (Nature's Domain Puppy Chicken and Pea Formula). It won't last long, but it is enough to get you through the ride home if you have a long drive or if you didn't get to the store to pick up a bag of their food yet. If you prefer to feed your fur baby a different kind of puppy food, get at least one bag of Nature's Domain and mix it half-and-half with the puppy food you prefer so your fur baby's stomach has enough time to get used to the new kind of puppy food. You'll need to feed your fur baby puppy food for a full year! A good rule of thumb when choosing a dog or puppy food is to make sure that the first two ingredients do not contain any kind of "meal." So try to avoid chicken meal, beef meal, fish meal, etc. "Meal" is the waste material such as organs, blood, bones, and feathers of the animal or fish that is from slaughterhouses that is processed and not fit for human consumption.</li>

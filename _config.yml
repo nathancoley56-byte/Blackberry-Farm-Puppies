@@ -1,4 +1,6 @@
 title: Blackberry Farm Puppies
+exclude:
+  - test
 collections:
   pages:
     output: true

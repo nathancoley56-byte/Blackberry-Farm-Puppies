@@ -5,7 +5,7 @@
     {% for testimonial in testimonial_entries %}
     {% assign description = testimonial.description %}
     {% assign image_alt = testimonial.image_alt %}
-
+    
     {% if testimonial.image != blank or description != blank or testimonial.name != blank %}
     <article class="testimonial-card">
         {% if testimonial.image != blank %}

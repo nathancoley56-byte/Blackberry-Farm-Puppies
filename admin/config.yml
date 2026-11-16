@@ -197,20 +197,54 @@ collections:
 
           - {label: "Main Heading Alignment", name: "heading_alignment", widget: "select", required: false, default: "default", options: [{label: "Page default", value: "default"}, {label: "Left-aligned", value: "left"}, {label: "Centered", value: "center"}, {label: "Right-aligned", value: "right"}]}
           - {label: "Page Content", name: "body", widget: "markdown"}
-      - file: "_pages/bernedoodles.md"
-        label: "Bernedoodle Puppies"
-        name: "bernedoodles"
+      - file: "_data/bernedoodles.yml"
+        label: "All Bernedoodles"
+        name: "all-bernedoodles"
         fields:
-          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
-          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/bernedoodles.html"}
-          - {label: "Breed Key", name: "breed", widget: "hidden", default: "bernedoodles"}
           - {label: "Page Title", name: "title", widget: "string"}
           - {label: "Banner Heading", name: "banner_heading", widget: "string"}
           - {label: "Banner Caption", name: "banner_caption", widget: "string"}
           - {label: "Payment Plan Image", name: "payment_plan_image", widget: "image", required: false}
           - {label: "Page Content", name: "body", widget: "markdown", required: false}
+          - label: "Bernedoodle Litters"
+            name: "litters"
+            widget: "list"
+            required: false
+            summary: "{{fields.mother_name}}'s litter"
+            fields:
+              - {label: "Individual Page Address", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and hyphens only.'], hint: "Keep this unique and unchanged to preserve the individual page URL."}
+              - {label: "Page Title", name: "title", widget: "string", required: false}
+              - {label: "Page Heading", name: "heading", widget: "string", required: false}
+              - {label: "Date Added", name: "date_added", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: false}
+              - {label: "Litter Type", name: "name", widget: "string", required: false}
+              - {label: "Mother's Name", name: "mother_name", widget: "string", required: false}
+              - {label: "Mother's Description", name: "mother_description", widget: "text", required: false}
+              - {label: "Mother's Photo", name: "mother_photo", widget: "image", required: false}
+              - {label: "Father's Name", name: "father_name", widget: "string", required: false}
+              - {label: "Father's Description", name: "father_description", widget: "text", required: false}
+              - {label: "Father's Photo", name: "father_photo", widget: "image", required: false}
+              - {label: "Ready to Go Home", name: "ready_to_go_home", widget: "string", required: false}
+              - {label: "Estimated Weight", name: "estimated_weight", widget: "string", required: false}
+              - {label: "Birthday", name: "birthday", widget: "string", required: false}
+              - label: "Puppies"
+                name: "puppies"
+                widget: "list"
+                required: false
+                summary: "{{fields.name}}"
+                fields:
+                  - {label: "Name", name: "name", widget: "string", required: false}
+                  - {label: "Color/Description", name: "color", widget: "string", required: false}
+                  - {label: "Price", name: "price", widget: "string", required: false}
+                  - {label: "Description", name: "description", widget: "hidden", required: false}
+                  - {label: "Additional details shown only on this litter page", name: "individual_details", widget: "markdown", required: false}
+                  - label: "Photo Wheel Images"
+                    name: "photos"
+                    widget: "list"
+                    required: false
+                    summary: "{{fields.image}}"
+                    field: {label: "Photo", name: "image", widget: "image", required: false}
   - name: "litters"
-    label: "Litters (All and Individual Pages)"
+    label: "Cavapoo Litters"
     label_singular: "Litter"
     folder: "_litters"
     create: true
@@ -226,13 +260,7 @@ collections:
       - {label: "Page Title", name: "title", widget: "string", required: false}
       - {label: "Page Heading", name: "heading", widget: "string", required: false}
       - {label: "Date Added", name: "date_added", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, default: "{{now}}", required: false, hint: "Automatically set for new litters. Leave blank if the original date is unknown."}
-      - label: "Breed"
-        name: "breed"
-        widget: "select"
-        required: false
-        options:
-          - {label: "Bernedoodles", value: "bernedoodles"}
-          - {label: "Cavapoos", value: "cavapoos"}
+      - {label: "Breed", name: "breed", widget: "hidden", default: "cavapoos"}
       - {label: "Display Order", name: "display_order", widget: "number", default: 99, required: false}
       - {label: "Litter Type", name: "name", widget: "string", required: false}
       - {label: "Mother's Name", name: "mother_name", widget: "string", required: false}
@@ -275,6 +303,7 @@ collections:
           - {label: "Main Text Color", name: "text_color", widget: "color", enableAlpha: false}
           - {label: "Secondary Text Color", name: "muted_text_color", widget: "color", enableAlpha: false}
           - {label: "Brand Green", name: "brand_color", widget: "color", enableAlpha: false}
+          - {label: "Seasonal Design", name: "seasonal_image", widget: "image", required: false, hint: "Optional repeating image for green separators without text. Remove it to restore Brand Green. Text banners stay solid green."}
           - label: "Site Font"
             name: "font_family"
             widget: "select"

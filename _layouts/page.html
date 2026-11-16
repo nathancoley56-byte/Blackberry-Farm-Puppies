@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=141">
+    <link rel="stylesheet" href="/style.css?v=143">
     {% include site-theme.html %}
 </head>
 <body class="{% if page.url contains '/recommended-products' %}recommended-products-page-body{% endif %}{% if site.data.site_design.wallpaper and site.data.site_design.wallpaper != '' %} has-wallpaper{% endif %}"{% if page.heading_alignment == "left" or page.heading_alignment == "center" or page.heading_alignment == "right" %} data-heading-alignment="{{ page.heading_alignment }}"{% endif %}>
@@ -18,14 +18,14 @@
         {% if page.layout == "litter" and page.breed == "bernedoodles" %}
             {% assign individual_bernedoodle = true %}
             {% assign pages_collection = site.collections | where: "label", "pages" | first %}
-
+            
                 {% assign breed_page = pages_collection.docs | where: "url", "/bernedoodles.html" | first %}
                 {% if page.mother_name and page.mother_name != "" %}
                     {% capture litter_banner_heading %}{{ page.mother_name }}'s Available Puppies{% endcapture %}
                 {% else %}
                     {% assign litter_banner_heading = "Available Puppies" %}
                 {% endif %}
-
+            
         {% endif %}
         <section class="content-section{% if page.banner_heading or individual_bernedoodle %} content-section--banner{% endif %}">
             {% if individual_bernedoodle %}
@@ -49,7 +49,11 @@
             {% include former-puppies-gallery.html %}
             {% endif %}
             {% if page.breed and page.layout != "litter" %}
+            {% if page.breed == "bernedoodles" %}
+            {% assign breed_litters = site.litters | where: "breed", page.breed | sort: "display_order" %}
+            {% else %}
             {% assign breed_litters = site.litters | where: "breed", page.breed | sort_natural: "display_order" %}
+            {% endif %}
             {% include puppy-litters.html litters=breed_litters %}
             {% endif %}
             {% if nav_page_url == "/bernedoodles.html" or page.breed == "bernedoodles" %}
@@ -63,6 +67,6 @@
         <p>© 2024 Blackberry Farm Puppies. All rights reserved.</p>
     </footer>
     <script src="/assets/js/image-viewer.js?v=7" defer></script>
-
+    
 </body>
 </html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dixie's puppies | Blackberry Farm Puppies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css?v=143">
+    
+<style>
+    :root {
+        --primary-color: #2563eb;
+        --primary-hover: #1d4ed8;
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --brand-color: #006400;
+        
+        --button-radius: var(--radius);
+        --max-width: 1100px;
+        --spacing-scale: 1;
+        --font-main: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    }
+    
+    body.has-wallpaper {
+        background-image: url("/images/screenshot-2026-11-10-193840.png");
+    }
+    
+</style>
+
+</head>
+<body class=" has-wallpaper">
+    
+
+
+<header>
+    <nav>
+        <img src="/Blackberry%20Farm%20Puppies.png" alt="Blackberry Farm Puppies" class="blackberry-farm-puppies-image">
+        <details class="mobile-nav" open>
+            <summary class="mobile-nav__toggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </summary>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <details data-current-section="true">
+                        <summary class="nav-dropdown__summary"><span>Available Puppies</span><span class="nav-dropdown__chevron" aria-hidden="true"></span></summary>
+                        <ul class="nav-dropdown__menu">
+                            <li><a href="/available-puppies.html">All Available Puppies</a></li>
+                            <li class="nav-dropdown">
+                                <details open data-current-section="true">
+                                    <summary class="nav-dropdown__summary">Bernedoodles<span class="nav-dropdown__chevron" aria-hidden="true"></span></summary>
+                                    <ul class="nav-dropdown__menu">
+                                        <li><a href="/bernedoodles.html">All</a></li>
+                                        
+                                        <li><a href="/litters/gracie.html">Gracie's puppies</a></li>
+                                        
+                                        <li><a href="/litters/gypsy.html">Gypsy's puppies</a></li>
+                                        
+                                        <li><a href="/litters/faith.html">Faith's puppies</a></li>
+                                        
+                                        <li><a href="/litters/jasmine.html">Jasmine's puppies</a></li>
+                                        
+                                        <li><a href="/litters/dixie.html" aria-current="page">Dixie's puppies</a></li>
+                                        
+                                        <li><a href="/litters/ocean.html">Ocean's puppies</a></li>
+                                        
+                                    </ul>
+                                </details>
+                            </li>
+                            <li class="nav-dropdown">
+                                <details>
+                                    <summary class="nav-dropdown__summary">Cavapoos<span class="nav-dropdown__chevron" aria-hidden="true"></span></summary>
+                                    <ul class="nav-dropdown__menu">
+                                        <li><a href="/cavapoos.html">All</a></li>
+                                        
+                                    </ul>
+                                </details>
+                            </li>
+                            <li><a href="/preparing-our-puppies.html">Preparing Our Puppies</a></li>
+                            <li><a href="/testimonials.html">Testimonials</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/former-puppies.html">Former Puppies</a></li>
+                <li class="nav-dropdown">
+                    <details>
+                        <summary class="nav-dropdown__summary"><span>FAQ</span><span class="nav-dropdown__chevron" aria-hidden="true"></span></summary>
+                        <ul class="nav-dropdown__menu">
+                            <li><a href="/faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="/payment-options.html">Payment Options</a></li>
+                            <li><a href="/shipping-options.html">Shipping Options</a></li>
+                            <li><a href="/recommended-products.html">Recommended Products</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </details>
+        <script>
+            (() => {
+                const menu = document.querySelector(".mobile-nav");
+                const mobile = window.matchMedia("(max-width: 720px)");
+                const syncMenu = () => {
+                    menu.querySelectorAll(".nav-dropdown__menu .nav-dropdown > details[data-current-section]").forEach((section) => {
+                        section.open = !mobile.matches;
+                    });
+                    if (mobile.matches) {
+                        menu.removeAttribute("open");
+                    } else {
+                        menu.setAttribute("open", "");
+                    }
+                };
+                syncMenu();
+                mobile.addEventListener("change", syncMenu);
+            })();
+        </script>
+        <a class="mobile-call-button" href="tel:8017359284">Call or Text 801-735-9284</a>
+        <div class="nav-social-links">
+        <a class="instagram-link" href="https://www.instagram.com/blackberryfarmpuppies?vrfl=MjkxMGNwYjhjazFw" target="_blank" rel="noopener noreferrer" aria-label="Visit Blackberry Farm Puppies on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle class="instagram-link__dot" cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+        </a>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61557680353507" target="_blank" rel="noopener noreferrer" aria-label="Visit Blackberry Farm Puppies on Facebook">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-9h3l.45-3.5H13.5V7.25c0-1.01.28-1.7 1.73-1.7H17V2.42A24 24 0 0 0 14.42 2c-2.56 0-4.31 1.56-4.31 4.43V9.5H7.2V13h2.91v9h3.39Z"></path></svg>
+</a>
+
+        </div>
+        <p class="delivery-banner"><span aria-hidden="true">🇺🇸</span> <span>Delivery Available to all 50 States</span> <span aria-hidden="true">🇺🇸</span></p>
+    </nav>
+</header>
+<script src="/assets/js/site-nav.js?v=1" defer></script>
+
+    <main>
+        
+        
+        
+        <section class="content-section content-section--banner">
+            
+            <div class="page-banner" id="top">
+    <h1>Dixie&#39;s Available Puppies</h1>
+    <p class="page-banner__caption">PET PRICE ONLY</p>
+    
+    <p class="page-banner__note">(Breeding Rights Extra)</p>
+    <a class="bernedoodle-callout__button page-banner__button" href="tel:8017359284">Call or Text 801-735-9284</a>
+    <div class="page-banner__payment">
+        <div class="page-banner__payment-text">
+            <p>Ask about our Payment Plans.</p>
+            <p>Choose options up to 36 months.</p>
+        </div>
+        
+        <img class="page-banner__klarna" src="/images/klarna-payment-badge.png" alt="Klarna" width="60" height="24">
+        
+    </div>
+    
+</div>
+
+            
+            
+
+
+
+
+
+
+
+<section class="puppy-litter">
+    <div class="puppy-litter__parents" aria-label="Puppy parents">
+        <article class="puppy-parent">
+            <div class="puppy-parent__image">
+                
+                <img src="/images/dixie.jpg" alt="Dixie" loading="lazy">
+                
+            </div>
+            <div class="puppy-parent__details">
+                <h3>Dixie</h3>
+                <details class="puppy-parent__bio">
+                <summary class="puppy-parent__role"><span>Mom</span><span class="puppy-parent__chevron" aria-hidden="true"></span></summary>
+                
+                <div class="puppy-parent__description">Dixie is a Gorgeous Ultra Multigenerational Bernedoodle. She weighs 48 pounds and is genetic tested.</div>
+                
+                </details>
+            </div>
+        </article>
+        <article class="puppy-parent">
+            <div class="puppy-parent__image">
+                
+                <img src="/images/rocky.jpg" alt="Rocky" loading="lazy">
+                
+            </div>
+            <div class="puppy-parent__details">
+                <h3>Rocky</h3>
+                <details class="puppy-parent__bio">
+                <summary class="puppy-parent__role"><span>Dad</span><span class="puppy-parent__chevron" aria-hidden="true"></span></summary>
+                
+                <div class="puppy-parent__description">Rocky is a multigenerational Bernedoodle. He weighs 34 pounds and is genetic tested.</div>
+                
+                </details>
+            </div>
+        </article>
+    </div>
+
+    <div class="puppy-details">
+        <h2>Multigenerational Bernedoodles</h2>
+        
+        <p class="puppy-details__availability">Ready to go home Oct. 15th</p>
+        
+        <p class="puppy-details__secondary">Estimated weight: Around 35-45 pounds</p>
+        <p class="puppy-details__secondary">B-day August 20th</p>
+    </div>
+
+    
+    <div class="puppy-litter__puppies">
+        
+        
+        
+        
+        
+        
+        <article class="puppy-litter__puppy-card">
+            <div class="puppy-litter__puppy-details">
+                <h3>Diesel</h3>
+                <p class="puppy-litter__puppy-facts">
+                    <span>Tri Color Male</span>
+                    <span>$3299</span>
+                </p>
+                
+            </div>
+            <div class="puppy-gallery" aria-label="Photo gallery for Diesel">
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/diesel-1.jpg" alt="Diesel" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/diesel-2.jpg" alt="Diesel" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/diesel-3.jpg" alt="Diesel" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/diesel-4.jpg" alt="Diesel" loading="lazy">
+                </div>
+                
+                
+                
+            </div>
+        </article>
+        
+        
+        
+        
+        
+        
+        <article class="puppy-litter__puppy-card">
+            <div class="puppy-litter__puppy-details">
+                <h3>Derrick</h3>
+                <p class="puppy-litter__puppy-facts">
+                    <span>Tri Color Male</span>
+                    <span>$3299</span>
+                </p>
+                
+            </div>
+            <div class="puppy-gallery" aria-label="Photo gallery for Derrick">
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/derrick-1.jpg" alt="Derrick" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/derrick-2.jpg" alt="Derrick" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/derrick-3.jpg" alt="Derrick" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/derrick-4.jpg" alt="Derrick" loading="lazy">
+                </div>
+                
+                
+                
+            </div>
+        </article>
+        
+        
+        
+        
+        
+        
+        <article class="puppy-litter__puppy-card">
+            <div class="puppy-litter__puppy-details">
+                <h3>Duke</h3>
+                <p class="puppy-litter__puppy-facts">
+                    <span>Tri Color Male</span>
+                    <span>$3299</span>
+                </p>
+                
+            </div>
+            <div class="puppy-gallery" aria-label="Photo gallery for Duke">
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/duke-1.jpg" alt="Duke" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/duke-2.jpg" alt="Duke" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/duke-3.jpg" alt="Duke" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/duke-4.jpg" alt="Duke" loading="lazy">
+                </div>
+                
+                
+                
+            </div>
+        </article>
+        
+        
+        
+        
+        
+        
+        <article class="puppy-litter__puppy-card">
+            <div class="puppy-litter__puppy-details">
+                <h3>Dawson</h3>
+                <p class="puppy-litter__puppy-facts">
+                    <span>Tri Color Male</span>
+                    <span>$3299</span>
+                </p>
+                
+            </div>
+            <div class="puppy-gallery" aria-label="Photo gallery for Dawson">
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/dawson-1.jpg" alt="Dawson" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/dawson-2.jpg" alt="Dawson" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/dawson-3.jpg" alt="Dawson" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/dawson-4.jpg" alt="Dawson" loading="lazy">
+                </div>
+                
+                
+                
+            </div>
+        </article>
+        
+        
+        
+        
+        
+        
+        <article class="puppy-litter__puppy-card">
+            <div class="puppy-litter__puppy-details">
+                <h3>Demi</h3>
+                <p class="puppy-litter__puppy-facts">
+                    <span>Tri Color Female</span>
+                    <span>$3299</span>
+                </p>
+                
+            </div>
+            <div class="puppy-gallery" aria-label="Photo gallery for Demi">
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/demi-1.jpg" alt="Demi" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/demi-2.jpg" alt="Demi" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/demi-3.jpg" alt="Demi" loading="lazy">
+                </div>
+                
+                
+                
+                <div class="puppy-gallery__item">
+                    <img src="/images/demi-4.jpg" alt="Demi" loading="lazy">
+                </div>
+                
+                
+                
+            </div>
+        </article>
+        
+    </div>
+    
+</section>
+
+
+            
+            
+            
+            
+            <section class="bernedoodle-callout" aria-label="Contact us about Bernedoodles">
+    <a class="bernedoodle-callout__button" href="tel:8017359284">Call/Text Us Now</a>
+    <div class="bernedoodle-callout__content">
+        
+        <p>You deserve to enjoy the wonderful feeling of coming home to a loyal companion. At Blackberry Farm Puppies, we are passionate and excited about sharing our love of dogs with you. When you decide to adopt a puppy, many questions can quickly arise. Let our friendly staff put your mind at ease as you shop for a new and loving member of the family.</p>
+        <p>When you browse our available Bernedoodle puppies, you can find your new best friend that will love you and stay by your side for countless years to come. We take the important and necessary steps to ensure your new Bernedoodle puppy is happy, healthy, and ready to come home with you. Bring home an adorable new member of the family today when you decide to adopt a Bernedoodle with us.</p>
+        <h2><a href="#top">Browse Our Available Bernedoodles</a></h2>
+        <p>When you are looking to adopt a puppy, it&rsquo;s important to consider the environment of your home and your current lifestyle. Thankfully, Bernedoodles make stellar companions with their loving and friendly nature. Bernedoodles are intelligent, loyal, and family-friendly. Additionally, Bernedoodles are low- to non-shedding dogs, which can free your home of bothersome allergies.</p>
+        <p>We are happily providing Bernedoodle puppies throughout Utah, California, and across the United States. When you decide to adopt a Bernedoodle through Blackberry Farm Puppies, you can have the confidence of knowing you are working with a family that is committed to the health and safety of our dogs.</p>
+        <p>Our Bernedoodle puppies are ready to find their loving home and start creating lasting memories with your family. If you are ready to see our available Bernedoodle puppies and find the perfect match for you, read on to take a look at our beautiful dogs. Visit our <a href="/about.html">about us</a> page today. For any general questions about the adoption process, contact us through our <a href="/index.html">home page</a>.</p>
+        
+    </div>
+</section>
+
+            
+        </section>
+    </main>
+    <details class="google-reviews-widget">
+    <summary class="google-reviews-widget__summary" aria-label="Toggle customer reviews">
+        <span class="google-reviews-widget__mobile-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+                <path fill="#4285F4" d="M43.6 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11c-.5 2.7-2 5-4.3 6.5v5.3h7c4.1-3.8 6.4-9.4 6.4-15.8z"/>
+                <path fill="#34A853" d="M24 44c5.8 0 10.7-1.9 14.2-5.2l-7-5.3c-1.9 1.3-4.3 2-7.2 2-5.5 0-10.2-3.7-11.9-8.7H5v5.5C8.5 37.3 15.6 44 24 44z"/>
+                <path fill="#FBBC05" d="M12.1 26.8a12 12 0 0 1 0-7.6v-5.5H5a20 20 0 0 0 0 18.6l7.1-5.5z"/>
+                <path fill="#EA4335" d="M24 11.5c3.2 0 6 1.1 8.2 3.2l6.1-6.1C34.7 5.1 29.8 3 24 3 15.6 3 8.5 9.7 5 17.4l7.1 5.5c1.7-5 6.4-11.4 11.9-11.4z"/>
+            </svg>
+        </span>
+        <span class="google-reviews-widget__title">Google Reviews</span>
+        <span class="google-reviews-widget__stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <span class="google-reviews-widget__rating"><strong>5.0</strong> <span>75 reviews</span></span>
+        <span class="google-reviews-widget__action"><span>Read reviews</span> <span class="google-reviews-widget__arrow" aria-hidden="true">⌃</span></span>
+    </summary>
+    <section class="google-reviews-widget__panel" aria-label="Customer reviews">
+        <header class="google-reviews-widget__panel-header">
+            <h2>Customer reviews</h2>
+            <div class="google-reviews-widget__panel-actions">
+                <span>5.0 <span class="google-reviews-widget__stars" aria-label="5 out of 5 stars">★★★★★</span></span>
+                <button class="google-reviews-widget__close" type="button" aria-label="Close customer reviews">&times;</button>
+            </div>
+        </header>
+        
+        <div class="google-reviews-widget__review-list">
+            <article class="google-reviews-widget__review">
+                <h3>Allie</h3>
+                <p>We love our puppy from BlackBerry Farm. She is the loveliest addition to our family. Melissa was wonderful throughout the whole process. Dolly arrived to us happy and healthy — it’s very clear they take great care of their puppies and mamas. We couldn’t be more grateful for this puppy!</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>Molly</h3>
+                <p>We are so very happy with our sweet boy, Captain. Melissa and all the people at Blackberry Farm Puppies were wonderful to work with and made the whole experience a pleasant one. We got Captain at almost 12 weeks and he has been amazing when it comes to potty training. The breeder starts working on this, with their dogs at 3 weeks! He is a chill, sweet boy who got a great report at his first vet visit. We are so grateful to Blackberry Farm Puppies for bringing our Captain to our family.</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>K D</h3>
+                <p>We got a medium size Bernadoodle puppy and I cant say enough great things about the breeder and our puppy! She was 13 weeks when we got her and slept through the night on night 1. We put her in the crate in our room and she was quiet until we woke her up the next morning. She has a super friendly, happy disposition and is gorgeous on top of her amazing personality!</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>Joan</h3>
+                <p>Melissa at Blackberry Farms Bernedoodles was a joy to work with. She had answers for all my questions, she set up a FaceTime call so that I could actually see the puppy and worked with me to set up a flight nanny to bring the puppy to us. The full transaction was easy to handle and I am extremely happy with my new little addition. In a time when there are so many people out there scamming people, not once did I feel like that was the situation. If you're looking for a cute little Bernedoodle like the one I got, be sure to contact Blackberry Farms Bernedoodles.</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>Becca</h3>
+                <p>George has been the best puppy. He came to us with such a calm and pleasant temperament. People always praise me on how calm and good of a puppy he is, and that started with Melissa and Todd. They also are easy to work with and met me at the airport when I came to pick him up. I would recommend anyone looking for a puppy to go through blackberry.</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>Delia</h3>
+                <p>We recently got our puppy and are absolutely in love! After looking for a few months we are glad to have found blackberry farms. Our dog is healthy and very well behaved. Would definitely recommend or consider getting another puppy from the blackberry farm 💜</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>Faith</h3>
+                <p>We are so blessed with our sweet boy from BlackBerry Farm Puppies! Melissa and her family were so amazing to work with, they communicated so well through the process and made it more than easy for us to pick him up. He’s 3 months now and so perfect!</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>Carol</h3>
+                <p>Melissa and Todd at BlackBerry Farm Puppies were amazing to work with! They were very accommodating and available to answer all questions. I highly recommend them. They take good care of the pups! Melissa helped us pick the most adorable puppy, Maverick! She also referred us to a flight nanny to help us fly him to his forever home with us! We couldn’t be happier!</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>Melissa</h3>
+                <p>I would like to thank @blackberryfarmpuppies for being so easy to work with since the beginning, thoughtful, and very informative. So glad I went to get my puppy with them. 100% recommend! Our puppy is so beautiful she has a gorgeous coat, great temperament, she is also so good with potty training already at 2 months! We love her so much and love having her as part of our family of 5 now 😊💗 God bless your business to the owner Melissa and her family. Madison was also amazing and helpful!</p>
+            </article>
+            <article class="google-reviews-widget__review">
+                <h3>Diana</h3>
+                <p>I can’t say enough good things about BlackBerry Farm Puppies! The process of adopting our mini Goldendoodle was seamless! Madison and her family were in contact with me the entire time and provided pictures along the way! And, the delivery process was stress free and convenient! Noah is now Rowan and we couldn’t be more in love! He is the perfect puppy and that’s thanks to how they raise their pups! He is so sweet and playful, we couldn’t be happier!</p>
+            </article>
+        </div>
+        <a class="google-reviews-widget__all-reviews" href="https://www.google.com/maps/search/?api=1&amp;query=BlackBerry%20Farm%20Puppies&amp;query_place_id=ChIJA8hum5td1aARdfGmGgYwTnY" target="_blank" rel="noopener noreferrer"><span>See all reviews on Google Maps</span> ↗</a>
+    </section>
+</details>
+<script>
+    (() => {
+        const widget = document.querySelector(".google-reviews-widget");
+        const summary = widget?.querySelector("summary");
+        const closeButton = widget?.querySelector(".google-reviews-widget__close");
+        if (!widget || !summary || !closeButton) return;
+
+        const updateFooterClearance = () => {
+            const footer = document.querySelector("body > footer");
+            if (!footer || !window.matchMedia("(max-width: 720px)").matches) {
+                widget.style.removeProperty("--mobile-footer-clearance");
+                return;
+            }
+
+            const clearance = Math.max(12, window.innerHeight - footer.getBoundingClientRect().top + 12);
+            widget.style.setProperty("--mobile-footer-clearance", `${clearance}px`);
+        };
+
+        updateFooterClearance();
+        window.addEventListener("scroll", updateFooterClearance, { passive: true });
+        window.addEventListener("resize", updateFooterClearance);
+
+        closeButton.addEventListener("click", () => {
+            widget.open = false;
+            summary.focus();
+        });
+
+        document.addEventListener("click", event => {
+            if (widget.open && !widget.contains(event.target)) {
+                widget.open = false;
+            }
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && widget.open) {
+                widget.open = false;
+                summary.focus();
+            }
+        });
+    })();
+</script>
+
+    <footer>
+        <p class="footer-phone"><a href="tel:8017359284">Call or Text us at 801-735-9284</a></p>
+        <p>© 2024 Blackberry Farm Puppies. All rights reserved.</p>
+    </footer>
+    <script src="/assets/js/image-viewer.js?v=7" defer></script>
+    
+</body>
+</html>

@@ -1,5 +1,5 @@
 {% assign nav_page_url = page.url %}
-{% assign bernedoodle_litters = site.litters | where: "breed", "bernedoodles" | sort_natural: "display_order" %}
+{% assign bernedoodle_litters = site.litters | where: "breed", "bernedoodles" | sort: "display_order" %}
 {% assign cavapoo_litters = site.litters | where: "breed", "cavapoos" | sort_natural: "display_order" %}
 <header>
     <nav>
@@ -21,7 +21,7 @@
                                     <ul class="nav-dropdown__menu">
                                         <li><a href="/bernedoodles.html"{% if nav_page_url == "/bernedoodles.html" %} aria-current="page"{% endif %}>All</a></li>
                                         {% for litter in bernedoodle_litters %}
-                                        <li><a href="{{ litter.url }}"{% if page.url == litter.url %} aria-current="page"{% endif %}>{{ litter.mother_name | escape }}'s litter</a></li>
+                                        <li><a href="{{ litter.url }}"{% if page.url == litter.url %} aria-current="page"{% endif %}>{{ litter.mother_name | escape }}'s puppies</a></li>
                                         {% endfor %}
                                     </ul>
                                 </details>
@@ -32,7 +32,7 @@
                                     <ul class="nav-dropdown__menu">
                                         <li><a href="/cavapoos.html"{% if nav_page_url == "/cavapoos.html" %} aria-current="page"{% endif %}>All</a></li>
                                         {% for litter in cavapoo_litters %}
-                                        <li><a href="{{ litter.url }}"{% if page.url == litter.url %} aria-current="page"{% endif %}>{{ litter.mother_name | escape }}'s litter</a></li>
+                                        <li><a href="{{ litter.url }}"{% if page.url == litter.url %} aria-current="page"{% endif %}>{{ litter.mother_name | escape }}'s puppies</a></li>
                                         {% endfor %}
                                     </ul>
                                 </details>
@@ -63,6 +63,9 @@
                 const menu = document.querySelector(".mobile-nav");
                 const mobile = window.matchMedia("(max-width: 720px)");
                 const syncMenu = () => {
+                    menu.querySelectorAll(".nav-dropdown__menu .nav-dropdown > details[data-current-section]").forEach((section) => {
+                        section.open = !mobile.matches;
+                    });
                     if (mobile.matches) {
                         menu.removeAttribute("open");
                     } else {

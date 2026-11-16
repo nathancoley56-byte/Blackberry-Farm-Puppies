@@ -107,8 +107,8 @@ testimonials:
       recommend Melissa and Blackberry Farm Puppies. My daughter and I ended up
       flying to Utah to pick up our puppy. Melissa was gracious and attentive
       during the whole process and we got to see firsthand how loving her home
-      is. What also struck me was how beautiful and healthy every single puppy
-      in Maggie’s litter was. I wanted to take all of them home with me. We
+      is. What also struck me was how beautiful and healthy every single one of
+      Maggie’s fellow puppies was. I wanted to take all of them home with me. We
       thank you from the bottom of hearts Melissa. You have provided us with the
       perfect new addition to our family.
     name: Rob Levine

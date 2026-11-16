@@ -11,14 +11,17 @@
     configLink.rel = "cms-config-url";
     configLink.type = "text/yaml";
     configLink.href = ["localhost", "127.0.0.1"].includes(window.location.hostname)
-      ? "/admin/config.local.yml?v=8"
-      : "/admin/config.yml?v=8";
+      ? "/admin/config.local.yml?v=11"
+      : "/admin/config.yml?v=11";
     document.head.appendChild(configLink);
   </script>
 </head>
 <body>
   <!-- Include the script that builds the CMS page -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/liquidjs@10.21.1/dist/liquid.browser.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+  <script src="/admin/preview.js?v=7"></script>
   <script src="/admin/aligned-heading.js?v=2"></script>
   <script src="/admin/photo-wheel-add-button.js?v=3" defer></script>
 </body>

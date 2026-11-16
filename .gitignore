@@ -1,6 +1,0 @@
-_site/
-.jekyll-cache/
-.vscode/
-admin/config.local.yml
-.bundle/
-vendor/

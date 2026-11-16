@@ -7,7 +7,7 @@
 {% assign birthday = litter.birthday %}
 
 <section class="puppy-litter">
-    <div class="puppy-litter__parents" aria-label="Litter parents">
+    <div class="puppy-litter__parents" aria-label="Puppy parents">
         <article class="puppy-parent">
             <div class="puppy-parent__image">
                 {% if litter.mother_photo and litter.mother_photo != "" %}
@@ -51,7 +51,7 @@
     </div>
 
     <div class="puppy-details">
-        <h2>{% if litter_name %}{{ litter_name | escape }}{% else %}Upcoming Litter{% endif %}</h2>
+        <h2>{% if litter_name %}{{ litter_name | escape }}{% else %}Upcoming Puppies{% endif %}</h2>
         {% if ready_to_go_home %}
         <p class="puppy-details__availability">{% if ready_to_go_home contains "Ready to go home" %}{{ ready_to_go_home | escape }}{% else %}Ready to go home {{ ready_to_go_home | escape }}{% endif %}</p>
         {% else %}
@@ -66,9 +66,9 @@
         {% for puppy in litter.puppies %}
         {% assign puppy_color = puppy.color %}
         {% assign puppy_details = puppy.individual_details %}
-
+        
         {% assign puppy_name = puppy.name | default: "Puppy details coming soon" %}
-
+        
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>{{ puppy_name | escape }}</h3>

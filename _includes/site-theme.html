@@ -8,6 +8,9 @@
         --text-color: {{ theme.text_color | default: '#0f172a' }};
         --text-muted: {{ theme.muted_text_color | default: '#64748b' }};
         --brand-color: {{ theme.brand_color | default: '#006400' }};
+        {% if theme.seasonal_image and theme.seasonal_image != "" %}
+        --seasonal-banner-image: url("{{ theme.seasonal_image | relative_url | uri_escape | replace: '"', '%22' | replace: ')', '%29' }}");
+        {% endif %}
         --button-radius: {% case theme.button_style %}{% when "square" %}0{% when "pill" %}9999px{% else %}var(--radius){% endcase %};
         --max-width: {% case theme.content_width %}{% when "narrow" %}900px{% when "wide" %}1300px{% else %}1100px{% endcase %};
         --spacing-scale: {% case theme.spacing %}{% when "compact" %}0.85{% when "spacious" %}1.15{% else %}1{% endcase %};
