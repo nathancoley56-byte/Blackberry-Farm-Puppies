@@ -11,8 +11,8 @@
         {% if theme.seasonal_image and theme.seasonal_image != "" %}
         --seasonal-banner-image: url("{{ theme.seasonal_image | relative_url | uri_escape | replace: '"', '%22' | replace: ')', '%29' }}");
         {% endif %}
-        --button-radius: {% case theme.button_style %}{% when "square" %}0{% when "pill" %}9999px{% else %}var(--radius){% endcase %};
-        --max-width: {% case theme.content_width %}{% when "narrow" %}900px{% when "wide" %}1300px{% else %}1100px{% endcase %};
+        --button-radius: {% case theme.button_style %}{% when "square" %}0{% when "pill" %}624.9375rem{% else %}var(--radius){% endcase %};
+        --max-width: {% case theme.content_width %}{% when "narrow" %}56.25rem{% when "wide" %}81.25rem{% else %}68.75rem{% endcase %};
         --spacing-scale: {% case theme.spacing %}{% when "compact" %}0.85{% when "spacious" %}1.15{% else %}1{% endcase %};
         --font-main: {% case theme.font_family %}{% when "lora" %}'Lora', Georgia, serif{% when "open-sans" %}'Open Sans', Arial, sans-serif{% when "georgia" %}Georgia, 'Times New Roman', serif{% else %}'Playfair Display', Georgia, 'Times New Roman', serif{% endcase %};
     }
@@ -21,4 +21,5 @@
         background-image: url("{{ theme.wallpaper | relative_url | uri_escape | replace: '"', '%22' | replace: ')', '%29' }}");
     }
     {% endif %}
+    {% include litter-format-style.html %}
 </style>

@@ -23,7 +23,7 @@
                 {% if mother_description and mother_description != "" %}
                 <div class="puppy-parent__description">{{ mother_description | escape | newline_to_br }}</div>
                 {% else %}
-                <p>Parent details coming soon.</p>
+                <p class="puppy-parent__description">Parent details coming soon.</p>
                 {% endif %}
                 </details>
             </div>
@@ -43,7 +43,7 @@
                 {% if father_description and father_description != "" %}
                 <div class="puppy-parent__description">{{ father_description | escape | newline_to_br }}</div>
                 {% else %}
-                <p>Parent details coming soon.</p>
+                <p class="puppy-parent__description">Parent details coming soon.</p>
                 {% endif %}
                 </details>
             </div>
@@ -57,8 +57,8 @@
         {% else %}
         <p class="puppy-details__availability">Ready-to-go-home date coming soon</p>
         {% endif %}
-        <p class="puppy-details__secondary">{% if estimated_weight contains "Estimated weight:" %}{{ estimated_weight | escape }}{% else %}Estimated weight: {{ estimated_weight | default: "Coming soon" | escape }}{% endif %}</p>
-        <p class="puppy-details__secondary">{% if birthday %}{% if birthday contains "B-day" %}{{ birthday | escape }}{% else %}B-day {{ birthday | escape }}{% endif %}{% else %}B-day coming soon{% endif %}</p>
+        <p class="puppy-details__secondary puppy-details__weight">{% if estimated_weight contains "Estimated weight:" %}{{ estimated_weight | escape }}{% else %}Estimated weight: {{ estimated_weight | default: "Coming soon" | escape }}{% endif %}</p>
+        <p class="puppy-details__secondary puppy-details__birthday">{% if birthday %}{% if birthday contains "B-day" %}{{ birthday | escape }}{% else %}B-day {{ birthday | escape }}{% endif %}{% else %}B-day coming soon{% endif %}</p>
     </div>
 
     {% if litter.puppies and litter.puppies.size > 0 %}
@@ -72,9 +72,11 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>{{ puppy_name | escape }}</h3>
-                <p class="puppy-litter__puppy-facts">
-                    <span>{% if puppy_color %}{{ puppy_color | escape }}{% else %}Color coming soon{% endif %}</span>
-                    <span>{% if puppy.price %}{{ puppy.price | escape }}{% else %}Price coming soon{% endif %}</span>
+                {% assign color_alignment = site.data.litter_format.puppy_color.alignment %}
+                {% assign price_alignment = site.data.litter_format.puppy_price.alignment %}
+                <p class="puppy-litter__puppy-facts{% if color_alignment == "left" or color_alignment == "center" or color_alignment == "right" or price_alignment == "left" or price_alignment == "center" or price_alignment == "right" or site.data.litter_format.spacing.puppy_price != nil or site.data.litter_format.space_puppy_price != nil %} puppy-litter__puppy-facts--separate{% endif %}">
+                    <span class="puppy-litter__puppy-color">{% if puppy_color %}{{ puppy_color | escape }}{% else %}Color coming soon{% endif %}</span>
+                    <span class="puppy-litter__puppy-price">{% if puppy.price %}{{ puppy.price | escape }}{% else %}Price coming soon{% endif %}</span>
                 </p>
                 {% if page.show_puppy_details and puppy_details and puppy_details != "" %}
                 <div class="puppy-litter__individual-details">
@@ -83,7 +85,7 @@
                 </div>
                 {% endif %}
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for {{ puppy_name | escape }}">
+            <div class="puppy-gallery" aria-label="Photo gallery for {{ puppy_name | escape }}{% if puppy.photos.size > 3 %}, scroll for more photos{% endif %}"{% if puppy.photos.size > 3 %} role="region" tabindex="0"{% endif %}>
                 {% if puppy.photos and puppy.photos.size > 0 %}
                 {% for image in puppy.photos %}
                 {% if image and image != "" %}

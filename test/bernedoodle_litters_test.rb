@@ -79,10 +79,112 @@ class BernedoodleLittersTest
     assert_includes File.read(File.join(@destination, "litters", "new-litter.html"), encoding: "UTF-8"), "New puppy"
   end
 
+  def test_gallery_scroll_access_and_placeholders_on_both_pages
+    litter = @site.data.fetch("bernedoodles").fetch("litters")[0]
+    litter["puppies"] = [
+      { "name" => "Many photos", "photos" => ["/one.jpg", "/two.jpg", "/three.jpg", "/four.jpg"] },
+      { "name" => "Three photos", "photos" => ["/one.jpg", "/two.jpg", "/three.jpg"] },
+      { "name" => "No photos" }
+    ]
+    @site.generate
+    @site.render
+    breed_page = @site.collections.fetch("pages").docs.find { |doc| doc.url == "/bernedoodles.html" }
+    individual_page = @site.collections.fetch("litters").docs.find { |doc| doc.url == "/litters/#{litter['slug']}.html" }
+    [breed_page, individual_page].each do |page|
+      assert_includes page.output, 'aria-label="Photo gallery for Many photos, scroll for more photos" role="region" tabindex="0"'
+      assert_includes page.output, 'aria-label="Photo gallery for Three photos">'
+      gallery = page.output.split('aria-label="Photo gallery for No photos">', 2)[1]
+      assert(gallery, "Missing empty photo gallery on #{page.url}")
+      assert(gallery.split("</article>", 2)[0].scan("puppy-gallery__item--placeholder").size == 3, "Expected three placeholders on #{page.url}")
+    end
+  end
+
+  def test_litter_format_is_shared_and_keeps_default_puppy_facts
+    format = @site.data.fetch("litter_format")
+    format.clear
+    format["parent_name"] = { "font_size" => 28, "bold" => true, "alignment" => "right" }
+    format["parent_role"] = { "alignment" => "left" }
+    format["puppy_color"] = { "font_size_rem" => 1.125, "alignment" => "left" }
+    format["puppy_price"] = { "font_size_rem" => 1.25, "alignment" => "right" }
+    format["birthday"] = { "font_size" => "99; color: red" }
+    format["spacing"] = {
+      "parent_role" => 0, "parent_details" => 0.25, "litter_type" => 0.5,
+      "ready_date" => 1.5, "estimated_weight" => 1, "birthday" => 1.25,
+      "puppy_name" => 1.75, "puppy_color" => 2, "puppy_price" => 0.75
+    }
+    format["space_ready_date"] = 2.25
+    format["parent_photos"] = { "width_rem" => 12, "gap_rem" => 2 }
+    collection = @site.collections.fetch("litters")
+    cavapoo = Jekyll::Document.new(File.join(@site.source, "_litters", "format-test.md"), site: @site, collection: collection)
+    cavapoo.data.merge!("layout" => "litter", "breed" => "cavapoos", "name" => "Cavapoo",
+                         "puppies" => [{ "name" => "Example", "color" => "Brown", "price" => "$100" }])
+    collection.docs << cavapoo
+    @site.generate
+    @site.render
+    breed = @site.collections.fetch("pages").docs.find { |doc| doc.url == "/bernedoodles.html" }
+    individual = collection.docs.find { |doc| doc.url == "/litters/gracie.html" }
+    [breed, individual, cavapoo].each do |page|
+      assert_includes page.output, ".puppy-litter .puppy-parent__details h3 {"
+      assert_includes page.output, "font-size: calc(1.75 * var(--fluid-text-unit));"
+      assert_includes page.output, "font-weight: 700;"
+      assert_includes page.output, "text-align: right;"
+      assert_includes page.output, "justify-content: flex-start;"
+      assert_includes page.output, "puppy-litter__puppy-facts--separate"
+      assert_includes page.output, "font-size: calc(1.125 * var(--fluid-text-unit));"
+      assert_includes page.output, "font-size: calc(1.25 * var(--fluid-text-unit));"
+      assert_includes page.output, "margin-top: calc(2.25 * var(--fluid-text-unit));"
+      refute_includes page.output, "margin-top: calc(1.5 * var(--fluid-text-unit));"
+      assert_includes page.output, "max-width: 26.0rem; gap:"
+      assert_includes page.output, "max-width: 12.0rem;"
+      assert_includes page.output, "margin-top: calc(0.75 * var(--fluid-text-unit));"
+      assert_includes page.output, "margin-top: calc(0.0 * var(--fluid-text-unit));"
+      assert_includes page.output, ".puppy-litter .puppy-parent__description { margin-top: calc(0.25 * var(--fluid-text-unit)); }"
+      assert_includes page.output, ".puppy-litter .puppy-details { margin-top: calc(0.5 * var(--fluid-text-unit)); }"
+      assert_includes page.output, ".puppy-litter .puppy-details__weight { margin-top: calc(1.0 * var(--fluid-text-unit)); }"
+      assert_includes page.output, ".puppy-litter .puppy-details__birthday { margin-top: calc(1.25 * var(--fluid-text-unit)); }"
+      assert_includes page.output, ".puppy-litter .puppy-litter__puppy-details h3 { margin-top: calc(1.75 * var(--fluid-text-unit)); }"
+      assert_includes page.output, ".puppy-litter .puppy-litter__puppy-facts { margin-top: calc(2.0 * var(--fluid-text-unit)); }"
+      refute_includes page.output, "99; color: red"
+    end
+    preview = @site.pages.find { |page| page.url == "/admin/preview-data.json" }
+    assert_includes preview.content, '"litter_format"'
+
+    format["puppy_color"] = {}
+    format["puppy_price"] = {}
+    format["spacing"] = {}
+    @site.render
+    refute_includes breed.output, "puppy-litter__puppy-facts--separate"
+  end
+
   def test_duplicate_addresses_fail_the_build
     litters = @site.data.fetch("bernedoodles").fetch("litters")
     litters[1]["slug"] = litters[0]["slug"]
     assert_build_error("Duplicate litter page address")
+  end
+
+  def test_negative_spacing_is_rendered_and_out_of_range_is_ignored
+    format = @site.data.fetch("litter_format")
+    keys = %w[parent_role parent_details litter_type ready_date estimated_weight birthday puppy_name puppy_color puppy_price]
+    keys.each { |key| format["space_#{key}"] = -0.5 }
+    @site.generate
+    @site.render
+    page = @site.collections.fetch("pages").docs.find { |doc| doc.url == "/bernedoodles.html" }
+    assert(page.output.scan("margin-top: calc(-0.5 * var(--fluid-text-unit));").length == keys.length, "Negative spacing missing from some text pairs")
+    assert_includes page.output, "puppy-litter__puppy-facts--separate"
+    format["space_ready_date"] = -5
+    format["space_birthday"] = -5.125
+    @site.render
+    assert_includes page.output, "margin-top: calc(-5.0 * var(--fluid-text-unit));"
+    refute_includes page.output, "margin-top: calc(-5.125 * var(--fluid-text-unit));"
+  end
+
+  def test_site_typography_uses_shared_fluid_scale
+    css = File.read(File.join(@site.source, "style.css"), encoding: "UTF-8")
+    assert_includes css, "--fluid-text-unit: clamp(0.8rem, calc(0.733333rem + 0.333333vw), 1rem);"
+    sizes = css.scan(/font-size:\s*([^;]+);/).flatten
+    assert(sizes.all? { |size| size.include?("var(--fluid-text-unit)") }, "Found a font size outside the shared fluid scale")
+    assert_includes css, "font-size: calc(1.85 * var(--fluid-text-unit));"
+    assert_includes css, "font-size: calc(2.5 * var(--fluid-text-unit));"
   end
 
   def test_invalid_addresses_fail_the_build
@@ -119,7 +221,7 @@ class BernedoodleLittersTest
     @site.render
     documents = @site.collections.fetch("pages").docs + @site.collections.fetch("litters").docs
     documents.each do |document|
-      html = document.output.gsub(/<script\b[^>]*>.*?<\/script>/mi, "")
+      html = document.output.gsub(/<(script|style)\b[^>]*>.*?<\/\1>/mi, "")
       accessibility = html.scan(/\b(?:aria-label|alt|title)\s*=\s*["']([^"']*)["']/i).flatten.join(" ")
       text = CGI.unescapeHTML(html.gsub(/<[^>]+>/m, " ") + " " + accessibility)
       assert(!text.match?(/\blitter(?:s|mates)?\b/i), "Customer-facing litter wording in #{document.url}")

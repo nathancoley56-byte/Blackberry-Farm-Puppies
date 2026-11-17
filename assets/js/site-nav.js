@@ -1,7 +1,8 @@
 (() => {
     const header = document.querySelector("body > header");
     const updateHeaderHeight = () => {
-        document.documentElement.style.setProperty("--site-header-height", `${header.offsetHeight}px`);
+        const rootSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        document.documentElement.style.setProperty("--site-header-height", `${header.offsetHeight / rootSize}rem`);
     };
 
     updateHeaderHeight();

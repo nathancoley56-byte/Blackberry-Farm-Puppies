@@ -16,7 +16,7 @@ module CmsPreview
         "pages" => collections.fetch("pages", []),
         "site" => {
           "title" => site.config["title"],
-          "data" => { "site_design" => site.data["site_design"] },
+          "data" => { "site_design" => site.data["site_design"], "litter_format" => site.data["litter_format"] },
           "litters" => collections.fetch("litters", []),
           "collections" => collections.map { |label, docs| { "label" => label, "docs" => docs } }
         }

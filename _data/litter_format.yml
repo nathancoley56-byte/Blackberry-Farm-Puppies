@@ -1,0 +1,24 @@
+parent_photos:
+  width_rem: 18
+  gap_rem: 8.625
+parent_name: {}
+space_parent_role: -0.575
+parent_role: {}
+space_parent_details: -0.5
+parent_details:
+  font_size_rem: 1.15
+space_litter_type: -0.75
+litter_type:
+  font_size_rem: 2
+space_ready_date: -0.725
+ready_date: {}
+space_estimated_weight: -0.35
+estimated_weight: {}
+space_birthday: -0.35
+birthday: {}
+space_puppy_name: 0.25
+puppy_name:
+  bold: true
+puppy_color: {}
+space_puppy_price: null
+puppy_price: {}

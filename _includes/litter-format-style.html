@@ -1,0 +1,58 @@
+{% assign format = site.data.litter_format %}
+{% assign format_keys = "parent_name,parent_role,parent_details,litter_type,ready_date,estimated_weight,birthday,puppy_name,puppy_color,puppy_price" | split: "," %}
+{% for key in format_keys %}
+{% assign setting = format[key] %}
+{% case key %}
+{% when "parent_name" %}{% assign selector = ".puppy-litter .puppy-parent__details h3" %}
+{% when "parent_role" %}{% assign selector = ".puppy-litter .puppy-parent__role" %}
+{% when "parent_details" %}{% assign selector = ".puppy-litter .puppy-parent__description" %}
+{% when "litter_type" %}{% assign selector = ".puppy-litter .puppy-details h2" %}
+{% when "ready_date" %}{% assign selector = ".puppy-litter .puppy-details__availability" %}
+{% when "estimated_weight" %}{% assign selector = ".puppy-litter .puppy-details__weight" %}
+{% when "birthday" %}{% assign selector = ".puppy-litter .puppy-details__birthday" %}
+{% when "puppy_name" %}{% assign selector = ".puppy-litter .puppy-litter__puppy-details h3" %}
+{% when "puppy_color" %}{% assign selector = ".puppy-litter .puppy-litter__puppy-color" %}
+{% when "puppy_price" %}{% assign selector = ".puppy-litter .puppy-litter__puppy-price" %}
+{% endcase %}
+{% assign size = setting.font_size_rem | plus: 0.0 %}
+{% if size == 0 %}{% assign size = setting.font_size | plus: 0.0 | divided_by: 16.0 %}{% endif %}
+{{ selector }} {
+    {% if size >= 0.625 and size <= 4.5 %}font-size: calc({{ size }} * var(--fluid-text-unit));{% endif %}
+    {% if setting.bold == true %}font-weight: 700;{% endif %}
+    {% case setting.alignment %}
+    {% when "left" %}text-align: left;{% if key == "parent_role" %}display: flex; justify-content: flex-start;{% endif %}
+    {% when "center" %}text-align: center;{% if key == "parent_role" %}display: flex; justify-content: center;{% endif %}
+    {% when "right" %}text-align: right;{% if key == "parent_role" %}display: flex; justify-content: flex-end;{% endif %}
+    {% endcase %}
+}
+{% endfor %}
+{% assign spacing_keys = "parent_role,parent_details,litter_type,ready_date,estimated_weight,birthday,puppy_name,puppy_color,puppy_price" | split: "," %}
+{% for key in spacing_keys %}
+{% capture space_key %}space_{{ key }}{% endcapture %}
+{% assign raw_space = format[space_key] %}
+{% if raw_space == nil or raw_space == "" %}{% assign raw_space = format.spacing[key] %}{% endif %}
+{% if raw_space != nil and raw_space != "" %}
+{% assign space = raw_space | plus: 0.0 %}
+{% if space >= -5 and space <= 10 %}
+{% case key %}
+{% when "parent_role" %}.puppy-litter .puppy-parent__role { margin-top: calc({{ space }} * var(--fluid-text-unit)); display: flex; {% case format.parent_role.alignment %}{% when "left" %}justify-content: flex-start;{% when "right" %}justify-content: flex-end;{% else %}justify-content: center;{% endcase %} }
+{% when "parent_details" %}.puppy-litter .puppy-parent__role { margin-bottom: 0; display: flex; {% case format.parent_role.alignment %}{% when "left" %}justify-content: flex-start;{% when "right" %}justify-content: flex-end;{% else %}justify-content: center;{% endcase %} } .puppy-litter .puppy-parent__description { margin-top: calc({{ space }} * var(--fluid-text-unit)); }
+{% when "litter_type" %}.puppy-litter .puppy-details { margin-top: calc({{ space }} * var(--fluid-text-unit)); }
+{% when "ready_date" %}.puppy-litter .puppy-details__availability { margin-top: calc({{ space }} * var(--fluid-text-unit)); }
+{% when "estimated_weight" %}.puppy-litter .puppy-details__availability { margin-bottom: 0; } .puppy-litter .puppy-details__weight { margin-top: calc({{ space }} * var(--fluid-text-unit)); }
+{% when "birthday" %}.puppy-litter .puppy-details__weight { margin-bottom: 0; } .puppy-litter .puppy-details__birthday { margin-top: calc({{ space }} * var(--fluid-text-unit)); }
+{% when "puppy_name" %}.puppy-litter .puppy-details { margin-bottom: 0; } .puppy-litter .puppy-details__birthday { margin-bottom: 0; } .puppy-litter .puppy-litter__puppy-details h3 { margin-top: calc({{ space }} * var(--fluid-text-unit)); }
+{% when "puppy_color" %}.puppy-litter .puppy-litter__puppy-facts { margin-top: calc({{ space }} * var(--fluid-text-unit)); }
+{% when "puppy_price" %}.puppy-litter .puppy-litter__puppy-facts--separate { row-gap: 0; } .puppy-litter .puppy-litter__puppy-price { margin-top: calc({{ space }} * var(--fluid-text-unit)); }
+{% endcase %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% assign photo_width = format.parent_photos.width_rem | plus: 0.0 %}
+{% assign photo_gap = format.parent_photos.gap_rem | plus: 0.0 %}
+{% if photo_width >= 3 and photo_width <= 40 and photo_gap >= 0 and photo_gap <= 20 %}
+{% assign photo_total = photo_width | times: 2 | plus: photo_gap %}
+{% assign photo_gap_percent = photo_gap | times: 100.0 | divided_by: photo_total %}
+.puppy-litter .puppy-litter__parents { max-width: {{ photo_total }}rem; gap: {{ photo_gap_percent }}%; }
+.puppy-litter .puppy-parent__image { max-width: {{ photo_width }}rem; }
+{% endif %}

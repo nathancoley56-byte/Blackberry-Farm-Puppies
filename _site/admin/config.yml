@@ -333,6 +333,31 @@ collections:
               - {label: "Compact", value: "compact"}
               - {label: "Comfortable", value: "comfortable"}
               - {label: "Spacious", value: "spacious"}
+      - file: "_data/litter_format.yml"
+        label: "Litter Format"
+        name: "litter-format"
+        fields:
+          - {label: "Parent photos", name: "parent_photos", widget: "litter-photos", required: false}
+          - {label: "Parent Names", name: "parent_name", widget: "litter-format-section", required: false}
+          - {label: "Space between Parent Names and MOM/DAD (rem)", name: "space_parent_role", widget: "litter-space", required: false}
+          - {label: "MOM/DAD", name: "parent_role", widget: "litter-format-section", required: false}
+          - {label: "Space between MOM/DAD and Parent details (rem)", name: "space_parent_details", widget: "litter-space", required: false}
+          - {label: "Parent details", name: "parent_details", widget: "litter-format-section", required: false}
+          - {label: "Space between Parent details and Bernedoodle Type (rem)", name: "space_litter_type", widget: "litter-space", required: false}
+          - {label: "Bernedoodle Type", name: "litter_type", widget: "litter-format-section", required: false}
+          - {label: "Space between Bernedoodle Type and Ready to go home date (rem)", name: "space_ready_date", widget: "litter-space", required: false}
+          - {label: "Ready to go home date", name: "ready_date", widget: "litter-format-section", required: false}
+          - {label: "Space between Ready to go home date and Estimated weight (rem)", name: "space_estimated_weight", widget: "litter-space", required: false}
+          - {label: "Estimated weight", name: "estimated_weight", widget: "litter-format-section", required: false}
+          - {label: "Space between Estimated weight and B-day date (rem)", name: "space_birthday", widget: "litter-space", required: false}
+          - {label: "B-day date", name: "birthday", widget: "litter-format-section", required: false}
+          - {label: "Space between B-day date and Puppy Name (rem)", name: "space_puppy_name", widget: "litter-space", required: false}
+          - {label: "Puppy Name", name: "puppy_name", widget: "litter-format-section", required: false}
+          - {label: "Space between Puppy Name and Puppy Color/Gender (rem)", name: "space_puppy_color", widget: "litter-space", required: false}
+          - {label: "Puppy Color/Gender", name: "puppy_color", widget: "litter-format-section", required: false}
+          - {label: "Space between Puppy Color/Gender and Price (rem)", name: "space_puppy_price", widget: "litter-space", required: false}
+          - {label: "Price", name: "puppy_price", widget: "litter-format-section", required: false}
+          - {label: "Previous spacing", name: "spacing", widget: "litter-spacing", required: false}
   - name: "photo-library"
     label: "Photo Library"
     files:

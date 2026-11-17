@@ -11,8 +11,9 @@
     --text-color: #0f172a;          /* Main text color */
     --text-muted: #64748b;         /* Subtitles / Secondary text */
     --font-main: 'Playfair Display', Georgia, 'Times New Roman', serif;
-    --max-width: 1100px;            /* Max width of content container */
-    --radius: 8px;                  /* Rounded corner radius */
+    --fluid-text-unit: clamp(0.8rem, calc(0.733333rem + 0.333333vw), 1rem);
+    --max-width: 68.75rem;            /* Max width of content container */
+    --radius: 0.5rem;                  /* Rounded corner radius */
     --button-radius: var(--radius);
     --brand-color: #006400;
     --spacing-scale: 1;
@@ -38,6 +39,7 @@ html {
 
 body {
     font-family: var(--font-main);
+    font-size: var(--fluid-text-unit);
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -61,7 +63,7 @@ body.has-wallpaper .home-intro {
 }
 
 body.has-wallpaper :is(main, .home-intro) {
-    -webkit-text-stroke: 5px #ffffff;
+    -webkit-text-stroke: 0.3125rem #ffffff;
     paint-order: stroke fill;
 }
 
@@ -112,10 +114,10 @@ p {
     justify-items: center;
     gap: 0.1rem;
     padding: 0.6rem;
-    border: 1px solid #d1d5db;
+    border: 0.0625rem solid #d1d5db;
     border-radius: 50%;
     background: var(--card-bg);
-    box-shadow: 0 4px 18px rgb(15 23 42 / 18%);
+    box-shadow: 0 0.25rem 1.125rem rgb(15 23 42 / 18%);
     color: var(--text-color);
     cursor: pointer;
     list-style: none;
@@ -136,19 +138,19 @@ p {
 }
 
 .google-reviews-widget__summary:focus-visible {
-    outline: 3px solid var(--brand-color);
-    outline-offset: 3px;
+    outline: 0.1875rem solid var(--brand-color);
+    outline-offset: 0.1875rem;
 }
 
 .google-reviews-widget__title {
-    font-size: 0.75rem;
+    font-size: calc(0.75 * var(--fluid-text-unit));
     font-weight: 700;
     text-align: center;
 }
 
 .google-reviews-widget__stars {
     color: #e6a700;
-    font-size: 0.95rem;
+    font-size: calc(0.95 * var(--fluid-text-unit));
     letter-spacing: 0.04em;
     line-height: 1.2;
 }
@@ -157,12 +159,12 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: calc(0.8 * var(--fluid-text-unit));
 }
 
 .google-reviews-widget__rating span {
     color: var(--text-muted);
-    font-size: 0.7rem;
+    font-size: calc(0.7 * var(--fluid-text-unit));
 }
 
 .google-reviews-widget__action {
@@ -171,14 +173,14 @@ p {
     gap: 0.35rem;
     margin-top: 0.1rem;
     color: var(--brand-color);
-    font-size: 0.7rem;
+    font-size: calc(0.7 * var(--fluid-text-unit));
     font-weight: 700;
     text-align: center;
 }
 
 .google-reviews-widget__arrow {
     display: inline-block;
-    font-size: 1rem;
+    font-size: calc(1 * var(--fluid-text-unit));
     transition: transform 0.2s ease;
 }
 
@@ -195,10 +197,10 @@ p {
     max-height: min(70vh, calc(100vh - 11rem));
     flex-direction: column;
     overflow: hidden;
-    border: 1px solid #d1d5db;
+    border: 0.0625rem solid #d1d5db;
     border-radius: var(--radius);
     background: var(--card-bg);
-    box-shadow: 0 4px 18px rgb(15 23 42 / 22%);
+    box-shadow: 0 0.25rem 1.125rem rgb(15 23 42 / 22%);
 }
 
 .google-reviews-widget__panel-header {
@@ -207,12 +209,12 @@ p {
     justify-content: space-between;
     gap: 1rem;
     padding: 1rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 0.0625rem solid #e2e8f0;
 }
 
 .google-reviews-widget__panel-header h2 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: calc(1.1 * var(--fluid-text-unit));
 }
 
 .google-reviews-widget__panel-actions {
@@ -226,7 +228,7 @@ p {
     flex-shrink: 0;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.9rem;
+    font-size: calc(0.9 * var(--fluid-text-unit));
     font-weight: 700;
 }
 
@@ -241,7 +243,7 @@ p {
     color: var(--text-muted);
     cursor: pointer;
     font: inherit;
-    font-size: 1.5rem;
+    font-size: calc(1.5 * var(--fluid-text-unit));
     line-height: 1;
 }
 
@@ -251,12 +253,12 @@ p {
 }
 
 .google-reviews-widget__close:focus-visible {
-    outline: 2px solid var(--brand-color);
-    outline-offset: 2px;
+    outline: 0.125rem solid var(--brand-color);
+    outline-offset: 0.125rem;
 }
 
 .google-reviews-widget__panel-header .google-reviews-widget__stars {
-    font-size: 0.85rem;
+    font-size: calc(0.85 * var(--fluid-text-unit));
 }
 
 .google-reviews-widget__review-list {
@@ -267,18 +269,18 @@ p {
 
 .google-reviews-widget__review {
     padding: 0.9rem 0;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 0.0625rem solid #e2e8f0;
 }
 
 .google-reviews-widget__review h3 {
     margin-bottom: 0.35rem;
-    font-size: 0.9rem;
+    font-size: calc(0.9 * var(--fluid-text-unit));
 }
 
 .google-reviews-widget__review p {
     margin: 0;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: calc(0.85 * var(--fluid-text-unit));
     line-height: 1.5;
 }
 
@@ -288,7 +290,7 @@ p {
     padding: 0.85rem 1rem;
     background: var(--card-bg);
     color: var(--brand-color);
-    font-size: 0.85rem;
+    font-size: calc(0.85 * var(--fluid-text-unit));
     font-weight: 700;
     text-align: center;
     text-decoration: none;
@@ -303,7 +305,7 @@ p {
    ========================================================================== */
 header {
     background-color: var(--card-bg);
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 0.0625rem solid #e2e8f0;
 }
 
 .site-header--scrolling {
@@ -362,7 +364,7 @@ nav {
     border-radius: var(--button-radius);
     background: #000;
     color: #fff;
-    font-size: 0.95rem;
+    font-size: calc(0.95 * var(--fluid-text-unit));
     font-weight: 700;
     text-align: center;
     text-decoration: none;
@@ -429,7 +431,7 @@ main .contact-form-section h1,
 main .contact-form-section h2 {
     grid-area: heading;
     margin: 0;
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: calc(3.2 * var(--fluid-text-unit));
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
@@ -438,7 +440,7 @@ main .contact-form-section h2 {
 .contact-form-copy {
     grid-area: copy;
     align-self: start;
-    font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+    font-size: calc(1.4 * var(--fluid-text-unit));
     line-height: 1.8;
 }
 
@@ -456,9 +458,9 @@ main .contact-form-section h2 {
 .contact-form__fields {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2px;
+    gap: 0.125rem;
     background: #373b4d;
-    border: 2px solid #373b4d;
+    border: 0.125rem solid #373b4d;
 }
 
 .contact-form input,
@@ -472,7 +474,7 @@ main .contact-form-section h2 {
     background: var(--card-bg);
     color: var(--text-color);
     font: inherit;
-    font-size: 1rem;
+    font-size: calc(1 * var(--fluid-text-unit));
 }
 
 .contact-form input::placeholder,
@@ -495,8 +497,8 @@ main .contact-form-section h2 {
 .contact-form textarea:focus-visible {
     position: relative;
     z-index: 1;
-    outline: 3px solid var(--primary-color);
-    outline-offset: -3px;
+    outline: 0.1875rem solid var(--primary-color);
+    outline-offset: -0.1875rem;
 }
 
 .contact-form button {
@@ -518,14 +520,14 @@ main .contact-form-section h2 {
 }
 
 .contact-form button:focus-visible {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 3px;
+    outline: 0.1875rem solid var(--primary-color);
+    outline-offset: 0.1875rem;
 }
 
 .visually-hidden {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: 0.0625rem;
+    height: 0.0625rem;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
@@ -584,17 +586,17 @@ main .contact-form-section h2 {
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: calc(1.1 * var(--fluid-text-unit));
     transition: color 0.2s ease;
 }
 
 .nav-links a[aria-current="page"] {
     display: inline-block;
     padding: 0.2rem 0.75rem;
-    border-radius: 9999px;
+    border-radius: 624.9375rem;
     background: var(--card-bg);
     color: var(--text-color);
-    box-shadow: 0 1px 5px rgb(15 23 42 / 20%);
+    box-shadow: 0 0.0625rem 0.3125rem rgb(15 23 42 / 20%);
 }
 
 .nav-links a:hover {
@@ -611,7 +613,7 @@ main .contact-form-section h2 {
     gap: 0.4rem;
     color: var(--text-muted);
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: calc(1.1 * var(--fluid-text-unit));
     font-weight: 500;
     list-style: none;
     white-space: nowrap;
@@ -624,9 +626,9 @@ main .contact-form-section h2 {
 .nav-dropdown details[data-current-section="true"] > .nav-dropdown__summary,
 .nav-dropdown details[open] > .nav-dropdown__summary {
     padding: 0.2rem 0.75rem;
-    border-radius: 9999px;
+    border-radius: 624.9375rem;
     background: var(--card-bg);
-    box-shadow: 0 1px 5px rgb(15 23 42 / 20%);
+    box-shadow: 0 0.0625rem 0.3125rem rgb(15 23 42 / 20%);
     color: var(--text-color);
 }
 
@@ -634,8 +636,8 @@ main .contact-form-section h2 {
     width: 0.45rem;
     height: 0.45rem;
     transform: translateY(-0.12rem) rotate(45deg);
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
+    border-right: 0.125rem solid currentColor;
+    border-bottom: 0.125rem solid currentColor;
     transition: transform 0.2s ease;
 }
 
@@ -652,16 +654,16 @@ main .contact-form-section h2 {
     min-width: 14rem;
     gap: 0.15rem;
     padding: 0.5rem;
-    border: 1px solid #e2e8f0;
+    border: 0.0625rem solid #e2e8f0;
     border-radius: var(--radius);
     background: var(--card-bg);
-    box-shadow: 0 8px 20px rgb(15 23 42 / 16%);
+    box-shadow: 0 0.5rem 1.25rem rgb(15 23 42 / 16%);
     list-style: none;
 }
 
 .nav-dropdown__menu .nav-dropdown__summary {
     padding: 0.55rem 0.75rem;
-    font-size: 0.95rem;
+    font-size: calc(0.95 * var(--fluid-text-unit));
 }
 
 .nav-dropdown__menu .nav-dropdown__menu {
@@ -670,7 +672,7 @@ main .contact-form-section h2 {
     margin-left: 0.75rem;
     padding: 0.25rem 0 0.25rem 0.5rem;
     border: 0;
-    border-left: 2px solid #e2e8f0;
+    border-left: 0.125rem solid #e2e8f0;
     border-radius: 0;
     box-shadow: none;
 }
@@ -683,7 +685,7 @@ main .contact-form-section h2 {
     background: transparent;
     box-shadow: none;
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: calc(0.95 * var(--fluid-text-unit));
     text-decoration: none;
     white-space: nowrap;
 }
@@ -703,12 +705,12 @@ main .contact-form-section h2 {
     margin: 0;
     padding: 0;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: calc(0.9 * var(--fluid-text-unit));
     font-weight: 700;
     text-align: center;
 }
 
-@media (min-width: 721px) and (max-width: 900px) {
+@media (min-width: 45.0625rem) and (max-width: 56.25rem) {
     .blackberry-farm-puppies-image {
         width: 9rem;
     }
@@ -719,16 +721,6 @@ main .contact-form-section h2 {
 
     .delivery-banner {
         left: calc(9rem + 1.5rem);
-        font-size: 0.8rem;
-    }
-
-    .nav-links a,
-    .nav-dropdown__summary {
-        font-size: 0.95rem;
-    }
-
-    .mobile-call-button {
-        font-size: 0.85rem;
     }
 }
 
@@ -743,7 +735,7 @@ main {
 
 .content-section {
     padding: calc(4rem * var(--spacing-scale)) 0;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 0.0625rem solid #e2e8f0;
 }
 
 .content-section--banner {
@@ -752,7 +744,7 @@ main {
 
 .content-section h1,
 .content-section h2 {
-    font-size: 2rem;
+    font-size: calc(2 * var(--fluid-text-unit));
     margin-bottom: 1rem;
 }
 
@@ -792,8 +784,8 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     aspect-ratio: 18 / 25;
     margin: 0 auto 1rem;
     object-fit: cover;
-    border: 1px solid #d1d5db;
-    border-radius: 12px;
+    border: 0.0625rem solid #d1d5db;
+    border-radius: 0.75rem;
     background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
 }
 
@@ -811,7 +803,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 .recommended-products-page__description {
     margin-top: 0.75rem;
     color: #475569;
-    font-size: 1.05rem;
+    font-size: calc(1.05 * var(--fluid-text-unit));
 }
 
 .available-puppies-heading {
@@ -860,10 +852,10 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .testimonial-card {
     overflow: hidden;
-    border: 1px solid #e2e8f0;
+    border: 0.0625rem solid #e2e8f0;
     border-radius: var(--radius);
     background: #fff;
-    box-shadow: 0 2px 8px rgb(15 23 42 / 8%);
+    box-shadow: 0 0.125rem 0.5rem rgb(15 23 42 / 8%);
 }
 
 .testimonial-card img {
@@ -908,7 +900,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .preparing-puppies__copy h2 {
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: calc(1.5 * var(--fluid-text-unit));
 }
 
 .preparing-puppies__copy p:last-child {
@@ -920,7 +912,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     min-height: 20rem;
     align-items: center;
     justify-content: center;
-    border: 1px dashed #94a3b8;
+    border: 0.0625rem dashed #94a3b8;
     border-radius: var(--radius);
     background: var(--card-bg);
     color: var(--text-muted);
@@ -983,11 +975,11 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .faq-list {
     margin-top: 2rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 0.0625rem solid #e2e8f0;
 }
 
 .faq-item {
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 0.0625rem solid #e2e8f0;
 }
 
 .faq-item summary {
@@ -995,7 +987,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     padding: 1.15rem 2.5rem 1.15rem 0.25rem;
     color: var(--text-color);
     cursor: pointer;
-    font-size: 1.25rem;
+    font-size: calc(1.25 * var(--fluid-text-unit));
     font-weight: 600;
     list-style: none;
     transition: color 0.2s ease;
@@ -1011,8 +1003,8 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     right: 0.5rem;
     width: 0.6rem;
     height: 0.6rem;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
+    border-right: 0.125rem solid currentColor;
+    border-bottom: 0.125rem solid currentColor;
     content: "";
     transform: translateY(-70%) rotate(45deg);
     transition: transform 0.2s ease;
@@ -1028,8 +1020,8 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .faq-item summary:focus-visible {
-    outline: 2px solid var(--brand-color);
-    outline-offset: 3px;
+    outline: 0.125rem solid var(--brand-color);
+    outline-offset: 0.1875rem;
 }
 
 .faq-item__answer {
@@ -1065,7 +1057,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .about-intro__copy h1 {
-    font-size: 2rem;
+    font-size: calc(2 * var(--fluid-text-unit));
     margin-bottom: 1rem;
 }
 
@@ -1102,7 +1094,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     background-color: var(--brand-color);
     margin-bottom: 1.5rem;
     color: #ffffff;
-    scroll-margin-top: var(--site-header-height, 0px);
+    scroll-margin-top: var(--site-header-height, 0rem);
     text-align: center;
 }
 
@@ -1113,13 +1105,13 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .page-banner h1 {
-    font-size: 2rem;
+    font-size: calc(2 * var(--fluid-text-unit));
     margin-bottom: 0.5rem;
     color: #ffffff;
 }
 
 .page-banner__caption {
-    font-size: 1rem;
+    font-size: calc(1 * var(--fluid-text-unit));
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 0;
@@ -1129,7 +1121,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 .page-banner__note {
     margin: 0.25rem 0 1rem;
     color: #ffffff;
-    font-size: 0.875rem;
+    font-size: calc(0.875 * var(--fluid-text-unit));
 }
 
 .page-banner__button {
@@ -1149,11 +1141,11 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .page-banner__payment-text p:first-child {
-    font-size: 1.125rem;
+    font-size: calc(1.125 * var(--fluid-text-unit));
 }
 
 .page-banner__payment-text p:last-child {
-    font-size: 0.875rem;
+    font-size: calc(0.875 * var(--fluid-text-unit));
     margin-bottom: 0;
 }
 
@@ -1161,16 +1153,16 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     width: 4rem;
     height: 3rem;
     flex: 0 0 4rem;
-    border: 1px dashed rgba(255, 255, 255, 0.8);
+    border: 0.0625rem dashed rgba(255, 255, 255, 0.8);
     border-radius: var(--radius);
     object-fit: cover;
 }
 
 .content-section .page-banner__klarna {
     display: block;
-    width: 60px;
-    height: 24px;
-    flex: 0 0 60px;
+    width: 3.75rem;
+    height: 1.5rem;
+    flex: 0 0 3.75rem;
     margin: 0;
     border-radius: 0;
 }
@@ -1202,7 +1194,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .bernedoodle-callout__content {
-    max-width: 900px;
+    max-width: 56.25rem;
     margin: 0 auto;
 }
 
@@ -1234,7 +1226,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 .puppy-profile__image,
 .puppy-profile__text {
     min-height: 16rem;
-    border: 1px solid #cbd5e1;
+    border: 0.0625rem solid #cbd5e1;
     border-radius: var(--radius);
     background-color: var(--card-bg);
 }
@@ -1296,7 +1288,10 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 .puppy-litter__parents {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
+    width: 100%;
+    max-width: 34.875rem;
+    margin-inline: auto;
+    gap: 4%;
 }
 
 .puppy-parent {
@@ -1312,10 +1307,10 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     display: grid;
     grid-template: minmax(0, 1fr) / minmax(0, 1fr);
     width: 100%;
-    max-width: 268px;
+    max-width: 16.75rem;
     aspect-ratio: 268 / 357;
     overflow: hidden;
-    border: 4px solid #111111;
+    border: 0.25rem solid #111111;
     background: var(--card-bg);
     color: var(--text-muted);
     text-align: center;
@@ -1343,7 +1338,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .puppy-parent__details {
     width: 100%;
-    font-size: 1.4rem;
+    font-size: calc(1.4 * var(--fluid-text-unit));
     text-align: center;
 }
 
@@ -1351,7 +1346,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     margin: 0;
     text-align: center;
     text-transform: uppercase;
-    font-size: 1.85rem;
+    font-size: calc(1.85 * var(--fluid-text-unit));
     font-weight: 400;
 }
 
@@ -1367,7 +1362,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     cursor: pointer;
     list-style: none;
     text-transform: uppercase;
-    font-size: 1.15rem;
+    font-size: calc(1.15 * var(--fluid-text-unit));
 }
 
 .puppy-parent__role::-webkit-details-marker {
@@ -1375,15 +1370,15 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .puppy-parent__role:focus-visible {
-    outline: 2px solid var(--brand-color);
-    outline-offset: 3px;
+    outline: 0.125rem solid var(--brand-color);
+    outline-offset: 0.1875rem;
 }
 
 .puppy-parent__chevron {
     width: 0.5rem;
     height: 0.5rem;
-    border-right: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
+    border-right: 0.09375rem solid currentColor;
+    border-bottom: 0.09375rem solid currentColor;
     transform: translateY(-0.15rem) rotate(45deg);
 }
 
@@ -1402,7 +1397,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .puppy-details h2 {
     margin: 0;
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-size: calc(2.5 * var(--fluid-text-unit));
     font-weight: 400;
 }
 
@@ -1412,11 +1407,11 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .puppy-details__availability {
     color: var(--brand-color);
-    font-size: clamp(1.35rem, 3vw, 2rem);
+    font-size: calc(2 * var(--fluid-text-unit));
 }
 
 .puppy-details__secondary {
-    font-size: 1.25rem;
+    font-size: calc(1.25 * var(--fluid-text-unit));
 }
 
 .puppy-litter__puppies {
@@ -1435,7 +1430,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .puppy-litter__puppy-details h3 {
     margin: 0;
-    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-size: calc(2.5 * var(--fluid-text-unit));
     font-weight: 400;
 }
 
@@ -1445,20 +1440,24 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     justify-content: center;
     gap: 0.35rem 1.5rem;
     margin: 0;
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-size: calc(1.6 * var(--fluid-text-unit));
+}
+
+.puppy-litter__puppy-facts--separate span {
+    flex: 0 0 100%;
 }
 
 .puppy-litter__individual-details {
     margin: 1rem auto 0;
     max-width: 50rem;
     padding-top: 0.75rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 0.0625rem solid #e2e8f0;
     text-align: left;
 }
 
 .puppy-litter__individual-details h4 {
     margin: 0 0 0.35rem;
-    font-size: 1.05rem;
+    font-size: calc(1.05 * var(--fluid-text-unit));
 }
 
 .puppy-litter__individual-details p:last-child {
@@ -1466,9 +1465,12 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .puppy-gallery {
+    --puppy-gallery-gap: 4%;
     display: flex;
-    gap: 1rem;
+    gap: var(--puppy-gallery-gap);
+    width: min(92vw, calc(100% + 3rem));
     margin-top: 1rem;
+    margin-inline: calc((100% - min(92vw, calc(100% + 3rem))) / 2);
     overflow-x: auto;
     padding: 0.5rem 0 1rem;
     scroll-snap-type: x mandatory;
@@ -1479,10 +1481,10 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 .puppy-gallery__item {
     display: grid;
     grid-template: minmax(0, 1fr) / minmax(0, 1fr);
-    flex: 0 0 min(350px, 78vw);
+    flex: 0 0 calc((100% - var(--puppy-gallery-gap) - var(--puppy-gallery-gap)) / 3);
     aspect-ratio: 350 / 467;
     overflow: hidden;
-    border: 2px solid #111111;
+    border: 0.125rem solid #111111;
     background-color: var(--card-bg);
     color: var(--text-muted);
     text-align: center;
@@ -1521,7 +1523,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     aspect-ratio: 3 / 4;
     align-items: center;
     justify-content: center;
-    border: 1px dashed #94a3b8;
+    border: 0.0625rem dashed #94a3b8;
     border-radius: var(--radius);
     background-color: var(--card-bg);
     color: var(--text-muted);
@@ -1549,15 +1551,15 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .image-viewer__trigger:focus-visible {
-    outline: 3px solid var(--brand-color);
-    outline-offset: 3px;
+    outline: 0.1875rem solid var(--brand-color);
+    outline-offset: 0.1875rem;
 }
 
 .image-viewer {
     position: fixed;
     width: 100vw;
-    height: min(94vh, 960px);
-    height: min(94dvh, 960px);
+    height: min(94vh, 60rem);
+    height: min(94dvh, 60rem);
     max-width: none;
     max-height: none;
     padding: 0;
@@ -1639,10 +1641,10 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     border-radius: 0;
     background: transparent;
     color: #ffffff;
-    text-shadow: 0 1px 4px #000000;
+    text-shadow: 0 0.0625rem 0.25rem #000000;
     cursor: pointer;
     font: inherit;
-    font-size: 2rem;
+    font-size: calc(2 * var(--fluid-text-unit));
     line-height: 1;
 }
 
@@ -1656,8 +1658,8 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 .image-viewer__close:focus-visible,
 .image-viewer__fullscreen:focus-visible,
 .image-viewer__nav:focus-visible {
-    outline: 3px solid #ffffff;
-    outline-offset: 3px;
+    outline: 0.1875rem solid #ffffff;
+    outline-offset: 0.1875rem;
 }
 
 .image-viewer__close {
@@ -1668,7 +1670,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 .image-viewer__fullscreen {
     top: max(1rem, env(safe-area-inset-top));
     right: max(4.75rem, calc(env(safe-area-inset-right) + 4.75rem));
-    font-size: 1.5rem;
+    font-size: calc(1.5 * var(--fluid-text-unit));
 }
 
 .image-viewer__nav {
@@ -1712,7 +1714,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     text-align: center;
     padding: calc(1.5rem * var(--spacing-scale)) 1rem;
     background: linear-gradient(180deg, #ffffff 0%, var(--bg-color) 100%);
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 0.0625rem solid #e2e8f0;
 }
 
 .home-photo {
@@ -1737,9 +1739,9 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     height: 100%;
     align-items: center;
     justify-content: center;
-    border-block: 1px dashed #94a3b8;
+    border-block: 0.0625rem dashed #94a3b8;
     color: var(--text-muted);
-    font-size: 1.25rem;
+    font-size: calc(1.25 * var(--fluid-text-unit));
     text-align: center;
 }
 
@@ -1751,7 +1753,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     padding: 2rem 1rem 0.75rem;
     background: linear-gradient(transparent, rgb(0 0 0 / 75%));
     color: #ffffff;
-    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-size: calc(2.75 * var(--fluid-text-unit));
     line-height: 1.2;
     text-align: center;
 }
@@ -1764,7 +1766,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 .home-intro h2 {
     max-width: 60rem;
     margin: 0 auto;
-    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-size: calc(3.75 * var(--fluid-text-unit));
     line-height: 1.15;
 }
 
@@ -1776,7 +1778,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .home-highlights h2 {
     margin-bottom: 1.5rem;
-    font-size: clamp(2.5rem, calc(3vw + 1rem), 3rem);
+    font-size: calc(3 * var(--fluid-text-unit));
     text-transform: uppercase;
 }
 
@@ -1791,7 +1793,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .home-highlights__item {
     padding: 1rem 0;
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-size: calc(1.5 * var(--fluid-text-unit));
     line-height: 1.5;
 }
 
@@ -1799,7 +1801,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     display: block;
     margin-top: 1rem;
     content: "🐾";
-    font-size: 1.5rem;
+    font-size: calc(1.5 * var(--fluid-text-unit));
     line-height: 1;
     text-align: center;
 }
@@ -1818,13 +1820,13 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 
 .home-about h2 {
     margin-bottom: 1rem;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: calc(3 * var(--fluid-text-unit));
     text-transform: uppercase;
 }
 
 .home-about__content p {
     margin: 0;
-    font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+    font-size: calc(1.35 * var(--fluid-text-unit));
     line-height: 1.7;
 }
 
@@ -1847,14 +1849,14 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     min-height: 28rem;
     align-items: center;
     justify-content: center;
-    border: 1px dashed #94a3b8;
+    border: 0.0625rem dashed #94a3b8;
     color: var(--text-muted);
-    font-size: 1.25rem;
+    font-size: calc(1.25 * var(--fluid-text-unit));
     text-align: center;
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: calc(1.25 * var(--fluid-text-unit));
     color: var(--text-muted);
     margin-bottom: 1rem;
 }
@@ -1864,7 +1866,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
    ========================================================================== */
 .btn {
     display: inline-block;
-    border: 1px solid #000000;
+    border: 0.0625rem solid #000000;
     background-color: #ffffff;
     color: #000000;
     padding: 0.75rem 1.5rem;
@@ -1911,7 +1913,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
 }
 
 .puppy-category__image--placeholder {
-    border: 1px dashed #94a3b8;
+    border: 0.0625rem dashed #94a3b8;
     background-color: var(--card-bg);
 }
 
@@ -1921,7 +1923,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     padding: 1rem 1.5rem;
     border-radius: var(--button-radius);
     text-align: center;
-    font-size: 1.125rem;
+    font-size: calc(1.125 * var(--fluid-text-unit));
 }
 
 .puppy-category__ribbon {
@@ -1936,9 +1938,9 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     transform: translateY(-50%) rotate(10deg);
     clip-path: polygon(50% 0%, 59% 12%, 72% 5%, 77% 19%, 92% 17%, 90% 33%, 100% 42%, 89% 52%, 97% 66%, 82% 72%, 84% 88%, 68% 87%, 59% 100%, 49% 88%, 36% 96%, 30% 82%, 14% 84%, 16% 68%, 2% 60%, 12% 49%, 4% 36%, 19% 30%, 17% 14%, 33% 16%, 42% 3%);
     background: var(--brand-color);
-    box-shadow: 0 2px 5px rgb(15 23 42 / 25%);
+    box-shadow: 0 0.125rem 0.3125rem rgb(15 23 42 / 25%);
     color: #ffffff;
-    font-size: 0.72rem;
+    font-size: calc(0.72 * var(--fluid-text-unit));
     font-weight: 700;
     line-height: 1.15;
     text-align: center;
@@ -1951,7 +1953,7 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
    ========================================================================== */
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -1960,19 +1962,19 @@ body[data-heading-alignment="right"] :is(.content-section > h1, .about-intro__co
     background-color: var(--card-bg);
     padding: 2rem;
     border-radius: var(--radius);
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 0.0625rem solid #e2e8f0;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
 }
 
 .service-card h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+    font-size: calc(1.25 * var(--fluid-text-unit));
 }
 
 .service-card p {
@@ -1986,12 +1988,12 @@ footer {
     text-align: center;
     padding: 2rem 1.5rem;
     color: var(--text-muted);
-    font-size: 0.875rem;
+    font-size: calc(0.875 * var(--fluid-text-unit));
 }
 
 .footer-phone {
     margin-bottom: 1rem;
-    font-size: 1.25rem;
+    font-size: calc(1.25 * var(--fluid-text-unit));
     font-weight: 700;
 }
 
@@ -2003,7 +2005,7 @@ footer {
 /* ==========================================================================
    7. RESPONSIVE DESIGN (MOBILE ADJUSTMENTS)
    ========================================================================== */
-@media (max-width: 720px) {
+@media (max-width: 45rem) {
     .contact-form-section {
         grid-template-areas:
             "heading"
@@ -2012,11 +2014,6 @@ footer {
         grid-template-columns: minmax(0, 1fr);
         gap: 1.5rem;
         margin: 2rem auto;
-    }
-
-    .contact-form-copy {
-        font-size: 1.1rem;
-        line-height: 1.7;
     }
 
     .contact-form input,
@@ -2068,10 +2065,6 @@ footer {
         display: none;
     }
 
-    .hero p {
-        font-size: 1rem;
-    }
-
     nav {
         justify-content: space-between;
         flex-wrap: wrap;
@@ -2113,7 +2106,7 @@ footer {
         align-items: center;
         justify-content: center;
         gap: 0.35rem;
-        border: 1px solid #d1d5db;
+        border: 0.0625rem solid #d1d5db;
         border-radius: 0.5rem;
         background: var(--card-bg);
         cursor: pointer;
@@ -2127,8 +2120,8 @@ footer {
     .mobile-nav__toggle span {
         display: block;
         width: 1.35rem;
-        height: 2px;
-        border-radius: 2px;
+        height: 0.125rem;
+        border-radius: 0.125rem;
         background: var(--text-color);
     }
 
@@ -2142,14 +2135,14 @@ footer {
         flex-direction: column;
         align-items: stretch;
         gap: 0.25rem;
-        max-height: max(4rem, calc(100vh - var(--site-header-height, 0px)));
-        max-height: max(4rem, calc(100dvh - var(--site-header-height, 0px)));
+        max-height: max(4rem, calc(100vh - var(--site-header-height, 0rem)));
+        max-height: max(4rem, calc(100dvh - var(--site-header-height, 0rem)));
         overflow-y: auto;
         padding: 0.75rem;
-        border: 1px solid #e2e8f0;
+        border: 0.0625rem solid #e2e8f0;
         border-radius: var(--radius);
         background: var(--card-bg);
-        box-shadow: 0 8px 20px rgb(15 23 42 / 16%);
+        box-shadow: 0 0.5rem 1.25rem rgb(15 23 42 / 16%);
     }
 
     .mobile-nav[open] .nav-links {
@@ -2164,7 +2157,6 @@ footer {
         align-items: center;
         padding: 0.5rem 0.75rem;
         border-radius: 0.35rem;
-        font-size: 1rem;
     }
 
     .nav-links a[aria-current="page"],
@@ -2179,7 +2171,7 @@ footer {
         margin-left: 0.75rem;
         padding: 0.25rem 0 0.25rem 0.5rem;
         border: 0;
-        border-left: 2px solid #e2e8f0;
+        border-left: 0.125rem solid #e2e8f0;
         border-radius: 0;
         box-shadow: none;
         transform: none;
@@ -2201,7 +2193,6 @@ footer {
         border-radius: var(--button-radius);
         background: #000;
         color: #fff;
-        font-size: 0.95rem;
         font-weight: 700;
         text-align: center;
         text-decoration: none;
@@ -2216,8 +2207,6 @@ footer {
         bottom: auto;
         left: auto;
         width: 100%;
-        font-size: 0.8rem;
-        line-height: 1.3;
     }
 
     .nav-links li:first-child {
@@ -2287,11 +2276,6 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .puppy-litter__parents {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.5rem;
-    }
-
     .puppy-parent {
         gap: 0.35rem;
     }
@@ -2301,24 +2285,16 @@ footer {
         aspect-ratio: 268 / 357;
     }
 
-    .puppy-parent__details {
-        font-size: 1rem;
-    }
-
-    .puppy-parent__details h3 {
-        font-size: 1.2rem;
-    }
-
     .who-i-am-image {
         
     max-width: 100%;       /* Keeps it responsive so it shrinks on mobile screens */
     height: auto;          /* Maintains the correct aspect ratio */
-    border-radius: 8px;    /* Optional: rounds the corners to match your buttons/cards */
+    border-radius: 0.5rem;    /* Optional: rounds the corners to match your buttons/cards */
     margin-top: 1.5rem;    /* Adds a little space above the image */
 }
     }
 
-@media (max-width: 520px) {
+@media (max-width: 32.5rem) {
     .testimonials-grid {
         grid-template-columns: 1fr;
     }

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=143">
+    <link rel="stylesheet" href="/style.css?v=149">
     
 <style>
     :root {
@@ -20,7 +20,7 @@
         --brand-color: #006400;
         
         --button-radius: var(--radius);
-        --max-width: 1100px;
+        --max-width: 68.75rem;
         --spacing-scale: 1;
         --font-main: 'Playfair Display', Georgia, 'Times New Roman', serif;
     }
@@ -29,6 +29,207 @@
         background-image: url("/images/screenshot-2026-11-10-193840.png");
     }
     
+    
+
+
+
+
+
+
+.puppy-litter .puppy-parent__details h3 {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-parent__role {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-parent__description {
+    font-size: calc(1.15 * var(--fluid-text-unit));
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-details h2 {
+    font-size: calc(2.0 * var(--fluid-text-unit));
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-details__availability {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-details__weight {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-details__birthday {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-litter__puppy-details h3 {
+    
+    font-weight: 700;
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-litter__puppy-color {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-litter__puppy-price {
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-parent__role { margin-top: calc(-0.575 * var(--fluid-text-unit)); display: flex; justify-content: center; }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-parent__role { margin-bottom: 0; display: flex; justify-content: center; } .puppy-litter .puppy-parent__description { margin-top: calc(-0.5 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details { margin-top: calc(-0.75 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details__availability { margin-top: calc(-0.725 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details__availability { margin-bottom: 0; } .puppy-litter .puppy-details__weight { margin-top: calc(-0.35 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details__weight { margin-bottom: 0; } .puppy-litter .puppy-details__birthday { margin-top: calc(-0.35 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details { margin-bottom: 0; } .puppy-litter .puppy-details__birthday { margin-bottom: 0; } .puppy-litter .puppy-litter__puppy-details h3 { margin-top: calc(0.25 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-litter__parents { max-width: 44.625rem; gap: 19.327731092436974%; }
+.puppy-litter .puppy-parent__image { max-width: 18.0rem; }
+
+
 </style>
 
 </head>
@@ -104,7 +305,7 @@
         <script>
             (() => {
                 const menu = document.querySelector(".mobile-nav");
-                const mobile = window.matchMedia("(max-width: 720px)");
+                const mobile = window.matchMedia("(max-width: 45rem)");
                 const syncMenu = () => {
                     menu.querySelectorAll(".nav-dropdown__menu .nav-dropdown > details[data-current-section]").forEach((section) => {
                         section.open = !mobile.matches;
@@ -136,7 +337,7 @@
         <p class="delivery-banner"><span aria-hidden="true">🇺🇸</span> <span>Delivery Available to all 50 States</span> <span aria-hidden="true">🇺🇸</span></p>
     </nav>
 </header>
-<script src="/assets/js/site-nav.js?v=1" defer></script>
+<script src="/assets/js/site-nav.js?v=2" defer></script>
 
     <main>
         
@@ -212,8 +413,8 @@
         
         <p class="puppy-details__availability">Ready to go home Aug 6th</p>
         
-        <p class="puppy-details__secondary">Estimated weight: Around 45-55 pounds</p>
-        <p class="puppy-details__secondary">B-day June 11th</p>
+        <p class="puppy-details__secondary puppy-details__weight">Estimated weight: Around 45-55 pounds</p>
+        <p class="puppy-details__secondary puppy-details__birthday">B-day June 11th</p>
     </div>
 
     
@@ -227,13 +428,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Dolly Parton</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Female</span>
-                    <span>$1899</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Female</span>
+                    <span class="puppy-litter__puppy-price">$1899</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Dolly Parton">
+            <div class="puppy-gallery" aria-label="Photo gallery for Dolly Parton, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -806,13 +1009,14 @@
 
         const updateFooterClearance = () => {
             const footer = document.querySelector("body > footer");
-            if (!footer || !window.matchMedia("(max-width: 720px)").matches) {
+            if (!footer || !window.matchMedia("(max-width: 45rem)").matches) {
                 widget.style.removeProperty("--mobile-footer-clearance");
                 return;
             }
 
-            const clearance = Math.max(12, window.innerHeight - footer.getBoundingClientRect().top + 12);
-            widget.style.setProperty("--mobile-footer-clearance", `${clearance}px`);
+            const rootSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+            const clearance = Math.max(0.75 * rootSize, window.innerHeight - footer.getBoundingClientRect().top + 0.75 * rootSize);
+            widget.style.setProperty("--mobile-footer-clearance", `${clearance / rootSize}rem`);
         };
 
         updateFooterClearance();

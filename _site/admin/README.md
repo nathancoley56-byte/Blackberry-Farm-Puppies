@@ -42,3 +42,28 @@ repeat it across the green separators between puppy groups. Select the
 Bernedoodles preview to see those areas; a sample separator and image-load status
 also appear at the top of the theme preview. Banners with text remain solid Brand
 Green. Remove the image to restore the solid Brand Green color to the separators.
+
+## Litter format
+
+Under **Site Design > Litter Format**, adjust font size, bold and alignment for
+each labeled piece of text. Sizes use rem units; 1 rem normally equals 16 pixels.
+Font-size boxes show the desktop reference values; text scales together to 80%
+of those sizes on narrow screens. Spacing defaults reflect the preview width,
+and custom spacing scales with the text. Editing a size sets its desktop value, and
+**Use default** restores responsive styling. The fixed preview labels are
+examples, not editable puppy information. Changes apply to current and future
+Bernedoodle and Cavapoo groups on both breed and individual pages after
+publishing and rebuilding. Parent details appear in the preview expanded, but
+remain expandable on the customer site.
+
+Puppy color and price normally share a line; choosing an explicit alignment for
+either places them on separate lines so each alignment can work independently.
+The controls between the text sections on the left adjust vertical spacing in
+rem for both breeds. Use the arrows or type a value from -5 to 10. Negative
+values move lines closer and may cause text to overlap; use
+**Use default** to restore the previous setting. Changing the space between color and price places them on separate
+lines. The example controls follow the order shown; actual parent details remain
+inside their expandable sections on customer pages.
+
+The parent photo controls set the maximum width of each photo and maximum gap
+between them. Both shrink proportionally on narrow screens.

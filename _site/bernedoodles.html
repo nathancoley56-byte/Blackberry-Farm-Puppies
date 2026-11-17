@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=143">
+    <link rel="stylesheet" href="/style.css?v=149">
     
 <style>
     :root {
@@ -20,7 +20,7 @@
         --brand-color: #006400;
         
         --button-radius: var(--radius);
-        --max-width: 1100px;
+        --max-width: 68.75rem;
         --spacing-scale: 1;
         --font-main: 'Playfair Display', Georgia, 'Times New Roman', serif;
     }
@@ -29,6 +29,207 @@
         background-image: url("/images/screenshot-2026-11-10-193840.png");
     }
     
+    
+
+
+
+
+
+
+.puppy-litter .puppy-parent__details h3 {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-parent__role {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-parent__description {
+    font-size: calc(1.15 * var(--fluid-text-unit));
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-details h2 {
+    font-size: calc(2.0 * var(--fluid-text-unit));
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-details__availability {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-details__weight {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-details__birthday {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-litter__puppy-details h3 {
+    
+    font-weight: 700;
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-litter__puppy-color {
+    
+    
+    
+}
+
+
+
+
+
+.puppy-litter .puppy-litter__puppy-price {
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-parent__role { margin-top: calc(-0.575 * var(--fluid-text-unit)); display: flex; justify-content: center; }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-parent__role { margin-bottom: 0; display: flex; justify-content: center; } .puppy-litter .puppy-parent__description { margin-top: calc(-0.5 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details { margin-top: calc(-0.75 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details__availability { margin-top: calc(-0.725 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details__availability { margin-bottom: 0; } .puppy-litter .puppy-details__weight { margin-top: calc(-0.35 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details__weight { margin-bottom: 0; } .puppy-litter .puppy-details__birthday { margin-top: calc(-0.35 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-details { margin-bottom: 0; } .puppy-litter .puppy-details__birthday { margin-bottom: 0; } .puppy-litter .puppy-litter__puppy-details h3 { margin-top: calc(0.25 * var(--fluid-text-unit)); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.puppy-litter .puppy-litter__parents { max-width: 44.625rem; gap: 19.327731092436974%; }
+.puppy-litter .puppy-parent__image { max-width: 18.0rem; }
+
+
 </style>
 
 </head>
@@ -104,7 +305,7 @@
         <script>
             (() => {
                 const menu = document.querySelector(".mobile-nav");
-                const mobile = window.matchMedia("(max-width: 720px)");
+                const mobile = window.matchMedia("(max-width: 45rem)");
                 const syncMenu = () => {
                     menu.querySelectorAll(".nav-dropdown__menu .nav-dropdown > details[data-current-section]").forEach((section) => {
                         section.open = !mobile.matches;
@@ -136,7 +337,7 @@
         <p class="delivery-banner"><span aria-hidden="true">🇺🇸</span> <span>Delivery Available to all 50 States</span> <span aria-hidden="true">🇺🇸</span></p>
     </nav>
 </header>
-<script src="/assets/js/site-nav.js?v=1" defer></script>
+<script src="/assets/js/site-nav.js?v=2" defer></script>
 
     <main>
         
@@ -222,8 +423,8 @@
         
         <p class="puppy-details__availability">Ready to go home July 29th</p>
         
-        <p class="puppy-details__secondary">Estimated weight: 35-45 pounds</p>
-        <p class="puppy-details__secondary">B-day June 3rd</p>
+        <p class="puppy-details__secondary puppy-details__weight">Estimated weight: 35-45 pounds</p>
+        <p class="puppy-details__secondary puppy-details__birthday">B-day June 3rd</p>
     </div>
 
     
@@ -237,13 +438,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Gloria</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Phantom Tri Color Female</span>
-                    <span>$899</span>
+                    <span class="puppy-litter__puppy-color">Phantom Tri Color Female</span>
+                    <span class="puppy-litter__puppy-price">$899</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Gloria">
+            <div class="puppy-gallery" aria-label="Photo gallery for Gloria, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -565,8 +768,8 @@
         
         <p class="puppy-details__availability">Ready to go home Aug 6th</p>
         
-        <p class="puppy-details__secondary">Estimated weight: Around 45-55 pounds</p>
-        <p class="puppy-details__secondary">B-day June 11th</p>
+        <p class="puppy-details__secondary puppy-details__weight">Estimated weight: Around 45-55 pounds</p>
+        <p class="puppy-details__secondary puppy-details__birthday">B-day June 11th</p>
     </div>
 
     
@@ -580,13 +783,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Dolly Parton</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Female</span>
-                    <span>$1899</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Female</span>
+                    <span class="puppy-litter__puppy-price">$1899</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Dolly Parton">
+            <div class="puppy-gallery" aria-label="Photo gallery for Dolly Parton, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1112,8 +1317,8 @@
         
         <p class="puppy-details__availability">Ready to go home Sept. 17</p>
         
-        <p class="puppy-details__secondary">Estimated weight: Around 30-45 lbs</p>
-        <p class="puppy-details__secondary">B-day July 23</p>
+        <p class="puppy-details__secondary puppy-details__weight">Estimated weight: Around 30-45 lbs</p>
+        <p class="puppy-details__secondary puppy-details__birthday">B-day July 23</p>
     </div>
 
     
@@ -1127,13 +1332,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Forrest</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Male</span>
-                    <span>$2899</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$2899</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Forrest">
+            <div class="puppy-gallery" aria-label="Photo gallery for Forrest, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1172,13 +1379,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Frederick</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Phantom Tri Color Male</span>
-                    <span>$1399</span>
+                    <span class="puppy-litter__puppy-color">Phantom Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$1399</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Frederick">
+            <div class="puppy-gallery" aria-label="Photo gallery for Frederick, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1217,13 +1426,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Felicity</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Phantom Tri Color Female</span>
-                    <span>$1899</span>
+                    <span class="puppy-litter__puppy-color">Phantom Tri Color Female</span>
+                    <span class="puppy-litter__puppy-price">$1899</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Felicity">
+            <div class="puppy-gallery" aria-label="Photo gallery for Felicity, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1311,8 +1522,8 @@
         
         <p class="puppy-details__availability">Ready to go home Sept. 23</p>
         
-        <p class="puppy-details__secondary">Estimated weight: Around 18-28 pounds</p>
-        <p class="puppy-details__secondary">B-day July 30th</p>
+        <p class="puppy-details__secondary puppy-details__weight">Estimated weight: Around 18-28 pounds</p>
+        <p class="puppy-details__secondary puppy-details__birthday">B-day July 30th</p>
     </div>
 
     
@@ -1326,13 +1537,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Jasper</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Blue Merle Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Blue Merle Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Jasper">
+            <div class="puppy-gallery" aria-label="Photo gallery for Jasper, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1371,13 +1584,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Jaxon</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Blue Merle Tri Color Male</span>
-                    <span>$2999</span>
+                    <span class="puppy-litter__puppy-color">Blue Merle Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$2999</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Jaxon">
+            <div class="puppy-gallery" aria-label="Photo gallery for Jaxon, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1416,13 +1631,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Jesse</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Blue Merle Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Blue Merle Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Jesse">
+            <div class="puppy-gallery" aria-label="Photo gallery for Jesse, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1510,8 +1727,8 @@
         
         <p class="puppy-details__availability">Ready to go home Oct. 15th</p>
         
-        <p class="puppy-details__secondary">Estimated weight: Around 35-45 pounds</p>
-        <p class="puppy-details__secondary">B-day August 20th</p>
+        <p class="puppy-details__secondary puppy-details__weight">Estimated weight: Around 35-45 pounds</p>
+        <p class="puppy-details__secondary puppy-details__birthday">B-day August 20th</p>
     </div>
 
     
@@ -1525,13 +1742,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Diesel</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Diesel">
+            <div class="puppy-gallery" aria-label="Photo gallery for Diesel, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1570,13 +1789,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Derrick</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Derrick">
+            <div class="puppy-gallery" aria-label="Photo gallery for Derrick, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1615,13 +1836,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Duke</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Duke">
+            <div class="puppy-gallery" aria-label="Photo gallery for Duke, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1660,13 +1883,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Dawson</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Dawson">
+            <div class="puppy-gallery" aria-label="Photo gallery for Dawson, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1705,13 +1930,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Demi</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Female</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Female</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Demi">
+            <div class="puppy-gallery" aria-label="Photo gallery for Demi, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1799,8 +2026,8 @@
         
         <p class="puppy-details__availability">Ready to go home October 7th</p>
         
-        <p class="puppy-details__secondary">Estimated weight: Around 35-45 pounds</p>
-        <p class="puppy-details__secondary">B-day August 12th</p>
+        <p class="puppy-details__secondary puppy-details__weight">Estimated weight: Around 35-45 pounds</p>
+        <p class="puppy-details__secondary puppy-details__birthday">B-day August 12th</p>
     </div>
 
     
@@ -1814,13 +2041,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Oliver</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Oliver">
+            <div class="puppy-gallery" aria-label="Photo gallery for Oliver, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -1925,13 +2154,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Otis</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Chocolate Merle Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Chocolate Merle Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Otis">
+            <div class="puppy-gallery" aria-label="Photo gallery for Otis, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -2042,13 +2273,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Oscar</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Blue Merle Tri Color Male</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Blue Merle Tri Color Male</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Oscar">
+            <div class="puppy-gallery" aria-label="Photo gallery for Oscar, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -2165,13 +2398,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Olivia</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Female</span>
-                    <span>$1299</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Female</span>
+                    <span class="puppy-litter__puppy-price">$1299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Olivia">
+            <div class="puppy-gallery" aria-label="Photo gallery for Olivia, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -2366,13 +2601,15 @@
         <article class="puppy-litter__puppy-card">
             <div class="puppy-litter__puppy-details">
                 <h3>Oakley</h3>
+                
+                
                 <p class="puppy-litter__puppy-facts">
-                    <span>Tri Color Female</span>
-                    <span>$3299</span>
+                    <span class="puppy-litter__puppy-color">Tri Color Female</span>
+                    <span class="puppy-litter__puppy-price">$3299</span>
                 </p>
                 
             </div>
-            <div class="puppy-gallery" aria-label="Photo gallery for Oakley">
+            <div class="puppy-gallery" aria-label="Photo gallery for Oakley, scroll for more photos" role="region" tabindex="0">
                 
                 
                 
@@ -2585,13 +2822,14 @@
 
         const updateFooterClearance = () => {
             const footer = document.querySelector("body > footer");
-            if (!footer || !window.matchMedia("(max-width: 720px)").matches) {
+            if (!footer || !window.matchMedia("(max-width: 45rem)").matches) {
                 widget.style.removeProperty("--mobile-footer-clearance");
                 return;
             }
 
-            const clearance = Math.max(12, window.innerHeight - footer.getBoundingClientRect().top + 12);
-            widget.style.setProperty("--mobile-footer-clearance", `${clearance}px`);
+            const rootSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+            const clearance = Math.max(0.75 * rootSize, window.innerHeight - footer.getBoundingClientRect().top + 0.75 * rootSize);
+            widget.style.setProperty("--mobile-footer-clearance", `${clearance / rootSize}rem`);
         };
 
         updateFooterClearance();

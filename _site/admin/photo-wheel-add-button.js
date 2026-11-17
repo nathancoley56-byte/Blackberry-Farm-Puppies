@@ -19,7 +19,7 @@
       if (!bottomBar) {
         bottomBar = document.createElement("div");
         bottomBar.className = "photo-wheel-add-bottom";
-        bottomBar.style.cssText = "display:flex;justify-content:flex-end;margin-top:8px";
+        bottomBar.style.cssText = "display:flex;justify-content:flex-end;margin-top:0.5rem";
         bottomBar.addEventListener("click", (event) => {
           if (!event.target.closest("button")) return;
           const currentList = bottomBar.previousElementSibling;

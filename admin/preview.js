@@ -1,6 +1,6 @@
 (() => {
   CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap");
-  CMS.registerPreviewStyle("/style.css?v=143");
+  CMS.registerPreviewStyle("/style.css?v=149");
   CMS.registerPreviewStyle("body.has-wallpaper .cms-preview-content > footer { background-color: var(--bg-color); }", { raw: true });
 
   const pageNames = [
@@ -37,7 +37,19 @@
     const site = JSON.parse(JSON.stringify(data.site));
     let page;
 
-    if (name === "global-theme") {
+    if (name === "litter-format") {
+      site.data.litter_format = values;
+      const sample = site.litters.find((litter) => litter.mother_photo && litter.father_photo) || {};
+      page = {
+        layout: "litter", breed: "bernedoodles", url: "/litters/format-example.html",
+        name: "Bernedoodle Type", mother_name: "Parent Names", father_name: "Parent Names",
+        mother_photo: sample.mother_photo, father_photo: sample.father_photo,
+        mother_description: "Parent details", father_description: "Parent details",
+        ready_to_go_home: "Ready to go home date", estimated_weight: "Estimated weight:",
+        birthday: "B-day date",
+        puppies: [{ name: "Puppy Name", color: "Puppy Color/Gender", price: "Price" }],
+      };
+    } else if (name === "global-theme") {
       site.data.site_design = values;
       page = { ...data.pages.find((item) => item.url === (themePage === "bernedoodles" ? "/bernedoodles.html" : "/")) };
     } else if (name === "all-bernedoodles") {
@@ -99,6 +111,10 @@
     const layout = page.layout === "home" ? data.layouts.home : data.layouts.page;
     const html = engine.parseAndRenderSync(layout, { ...context, content });
     const document = new DOMParser().parseFromString(html, "text/html");
+    if (name === "litter-format") {
+      document.querySelectorAll(".puppy-parent__bio").forEach((details) => { details.open = true; });
+      document.querySelector(".puppy-details__weight").textContent = "Estimated weight";
+    }
     return {
       html: document.body.innerHTML,
       className: document.body.className,
@@ -153,6 +169,7 @@
       },
       componentWillUnmount() {
         this.mounted = false;
+        if (this.metricsObserver) this.metricsObserver.disconnect();
         if (this.mobileMedia) this.mobileMedia.removeEventListener("change", this.syncPreviewMenu);
         if (this.previewBody) {
           this.previewBody.classList.remove("has-wallpaper", "recommended-products-page-body");
@@ -167,6 +184,33 @@
           });
         }
       },
+      updateFormatMetrics() {
+        if (!this.previewElement) return;
+        const doc = this.previewElement.ownerDocument;
+        const rootSize = parseFloat(doc.defaultView.getComputedStyle(doc.documentElement).fontSize);
+        const textUnit = parseFloat(doc.defaultView.getComputedStyle(doc.body).fontSize);
+        const selectors = {
+          parent_name: ".puppy-parent__details h3", parent_role: ".puppy-parent__role",
+          parent_details: ".puppy-parent__description", litter_type: ".puppy-details h2",
+          ready_date: ".puppy-details__availability", estimated_weight: ".puppy-details__weight",
+          birthday: ".puppy-details__birthday", puppy_name: ".puppy-litter__puppy-details h3",
+          puppy_color: ".puppy-litter__puppy-color", puppy_price: ".puppy-litter__puppy-price",
+        };
+        const keys = Object.keys(selectors);
+        const elements = keys.map((key) => this.previewElement.querySelector(selectors[key]));
+        if (elements.some((element) => !element)) return;
+        const metrics = {};
+        const rounded = (value) => Math.round(value * 10000) / 10000;
+        elements.forEach((element, index) => {
+          metrics[`font_${keys[index]}`] = rounded(parseFloat(doc.defaultView.getComputedStyle(element).fontSize) / textUnit);
+          if (index) {
+            const previous = elements[index - 1].getBoundingClientRect();
+            const current = element.getBoundingClientRect();
+            metrics[`space_${keys[index]}`] = rounded(Math.max(0, current.top - previous.bottom) / rootSize);
+          }
+        });
+        window.dispatchEvent(new CustomEvent("litter-format-metrics", { detail: metrics }));
+      },
       render() {
         if (this.state.error) return h("p", null, `Preview unavailable: ${this.state.error}`);
         if (!this.state.data) return h("p", null, "Loading site preview...");
@@ -179,10 +223,18 @@
           return h("div", {
             ref: (element) => {
               if (!element) return;
+              if (name === "litter-format") {
+                this.previewElement = element;
+                if (!this.metricsObserver && "ResizeObserver" in window) {
+                  this.metricsObserver = new ResizeObserver(this.updateFormatMetrics);
+                  this.metricsObserver.observe(element);
+                }
+                requestAnimationFrame(this.updateFormatMetrics);
+              }
               const body = element.ownerDocument.body;
               this.previewBody = body;
               if (!this.mobileMedia) {
-                this.mobileMedia = element.ownerDocument.defaultView.matchMedia("(max-width: 720px)");
+                this.mobileMedia = element.ownerDocument.defaultView.matchMedia("(max-width: 45rem)");
                 this.mobileMedia.addEventListener("change", this.syncPreviewMenu);
               }
               const menu = element.querySelector(".mobile-nav");
@@ -195,24 +247,25 @@
               if (preview.alignment) body.setAttribute("data-heading-alignment", preview.alignment);
               else body.removeAttribute("data-heading-alignment");
             },
-          }, h("style", null, preview.theme), name === "all-bernedoodles" && h("div", {
-            style: { padding: "8px", background: "#fff", color: "#222" },
+          }, h("style", null, preview.theme), name === "litter-format" && h("p", { style: { padding: "0.5rem", background: "#fff", color: "#222" } }, "Fixed examples: adjust formatting and spacing in the left panel."),
+          name === "all-bernedoodles" && h("div", {
+            style: { padding: "0.5rem", background: "#fff", color: "#222" },
           }, h("label", null, "Preview page: ", h("select", {
             value: selectedLitter,
             onChange: (event) => this.setState({ litterIndex: event.target.value }),
           }, h("option", { value: "all" }, "All Bernedoodles"),
           ...litters.map((litter, index) => h("option", { key: index, value: String(index) },
             litter.mother_name ? `${litter.mother_name}'s puppies` : `Puppies ${index + 1}`)))),
-          h("p", { style: { margin: "8px 0" } }, "Edit all puppies in the fields on the left; this selector only changes the preview.")),
+          h("p", { style: { margin: "0.5rem 0" } }, "Edit all puppies in the fields on the left; this selector only changes the preview.")),
           name === "global-theme" && h("div", {
-            style: { padding: "8px", background: "#fff", color: "#222" },
+            style: { padding: "0.5rem", background: "#fff", color: "#222" },
           }, h("label", null, "Preview page: ", h("select", {
             value: this.state.themePage,
             onChange: (event) => this.setState({ themePage: event.target.value }),
           }, h("option", { value: "bernedoodles" }, "Bernedoodles"), h("option", { value: "home" }, "Home"))),
-          h("p", { style: { margin: "8px 0" } }, "Seasonal separator preview:"),
+          h("p", { style: { margin: "0.5rem 0" } }, "Seasonal separator preview:"),
           h("div", { className: "puppy-litter__separator", style: { width: "100%", margin: 0 } }),
-          h("p", { role: "status", style: { margin: "8px 0" } },
+          h("p", { role: "status", style: { margin: "0.5rem 0" } },
             this.state.imageStatus === "error"
               ? "The seasonal image could not be loaded. Choose an available image or check the image URL."
               : this.state.imageStatus === "loading"
@@ -231,6 +284,6 @@
     });
   }
 
-  pageNames.concat(["litters", "global-theme", "all-bernedoodles"]).forEach((name) =>
+  pageNames.concat(["litters", "global-theme", "all-bernedoodles", "litter-format"]).forEach((name) =>
     CMS.registerPreviewTemplate(name, makePreview(name)));
 })();
